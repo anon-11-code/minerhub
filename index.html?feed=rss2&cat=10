@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Tools &amp; Scripts &#8211; CyberGridX</title>
+	<atom:link href="http://192.168.1.108/?feed=rss2&#038;cat=10" rel="self" type="application/rss+xml" />
+	<link>http://192.168.1.108</link>
+	<description></description>
+	<lastBuildDate>Sun, 01 Jun 2025 17:06:02 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.8.1</generator>
+
+<image>
+	<url>http://192.168.1.108/wp-content/uploads/2025/05/icon.png</url>
+	<title>Tools &amp; Scripts &#8211; CyberGridX</title>
+	<link>http://192.168.1.108</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>&#8220;Mastering Multi-Coin Mining: A Steb-by-Step XMRig, RTM, and VerusHash Tutorial&#8221;</title>
+		<link>http://192.168.1.108/?p=530</link>
+					<comments>http://192.168.1.108/?p=530#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sun, 01 Jun 2025 15:35:10 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<category><![CDATA[Mining Automation]]></category>
+		<category><![CDATA[Performance Tuning]]></category>
+		<category><![CDATA[Tools & Scripts]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=530</guid>
+
+					<description><![CDATA[Tutorial: Build a Multi-Coin Mining Rig with XMRig, RTM, and VerusHash Ready to mine XMR (RandomX), RTM (GhostRider), and Verus (VerusHash)? This step-by-step tutorial equips you with tools, scripts, and automation to set up and optimize a multi-coin mining rig on Linux. 🛠 Step 1: Gather Essential Mining Tools First, install the core tools for mining: XMRig for Monero (XMR): https://xmrig.com RTM Core Wallet: https://rtmcoin.pro Verus Desktop: https://verus.io Install dependencies: sudo apt install build-essential cmake htop 📥 Step 2: Install and Configure XMRig (RandomX) Download and extract XMRig: wget https://github.com/xmrig/xmrig/releases/download/v6.21.0/xmrig-6.21.0-linux-x64.tar.gz tar -xvf xmrig-6.21.0-linux-x64.tar.gz cd xmrig-6.21.0 Create a config.json: { "pools": [ { "url": "pool.supportxmr.com:5555", "user": "YOUR_XMR_ADDRESS", "pass": "x", "keepalive": true, "tls": false } ], "cpu": { "enabled": true, "huge-pages": true, "threads": 2, "priority": 1 }, "log-file": "xmrig.log", "verbose": 2 } Start mining: ./xmrig --config=config.json 💻 Step 3: Set Up RTM with GhostRider wget https://rtmcoin.pro/downloads/rtm-core-latest-linux.tar.gz tar -xvf rtm-core-latest-linux.tar.gz cd rtm-core ./rtm-core-install.sh Edit ~/.rtm/rtm.conf: rpcuser=youruser rpcpassword=yourpass rpcallowip=127.0.0.1 rpcport=8332 server=1 Create start-rtm.sh: #!/bin/bash RTM_DIR="/path/to/rtm-core" LOG="rtm-mining-$(date +%F).log" cd $RTM_DIR &#124;&#124; exit echo "[*] Starting RTM mining..." &#124; tee $LOG ./rtm-cli -rpcuser=youruser -rpcpassword=yourpass startmining &#038; 🔧 Step 4: VerusHash Mining (Verus) Build Verus miner: git clone https://github.com/VerusCoin/nheqminer.git cd nheqminer mkdir build &#038;& cd build cmake .. make -j$(nproc) Create tune-verus.sh: #!/bin/bash echo "[*] Tuning VerusHash performance..." sysctl -w vm.nr_hugepages=128 echo performance &#124; tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ./nheqminer -l vrsc.miner.rocks:3333 -u YOUR_VRSC_ADDRESS -p x &#038; echo "[+] VerusHash optimized and running" 🤖 Step 5: Master Script: mine-all.sh #!/bin/bash echo "[*] Starting all miners..." cd /path/to/xmrig &#038;& ./xmrig --config=config.json &#038; cd /path/to/rtm-core &#038;& ./start-rtm.sh &#038; cd /path/to/nheqminer/build &#038;& ./tune-verus.sh &#038; echo "[+] All mining processes started" Schedule mining on boot: @reboot /path/to/mine-all.sh 📊 Step 6: Monitor Hashrate Create monitor-hash.sh: #!/bin/bash LOG="hashrate-$(date +%F).log" echo "[*] Checking hashrates..." &#124; tee $LOG grep "speed" /path/to/xmrig/xmrig.log &#124; tail -1 &#124; tee -a $LOG curl -s http://127.0.0.1:8332 -u youruser:yourpass -d '{"method":"getmininginfo"}' &#124; tee -a $LOG pidof nheqminer &#038;& echo "VerusHash running" &#124;&#124; echo "VerusHash stopped" &#124; tee -a $LOG 🔍 Step 7: Troubleshoot Low Hashrate: Enable hugepages &#038; check CPU governor Pool Errors: Validate pool config &#038; TLS settings High Temps: Reduce threads or CPU intensity 🌟 Step 8: Scale + Share Add failover pools in config.json, tweak thread counts, and share your scripts on Miner Hub&#8217;s X!]]></description>
+										<content:encoded><![CDATA[<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><br />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script></p>
+<style>
+.mining-post-container {
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(135deg, #0a111d, #141f30);
+  color: #e0f7ff;
+  border-radius: 20px;
+  padding: 35px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 30px rgba(0, 255, 200, 0.12);
+  animation: fadeIn 1.8s ease-in-out;
+}
+.mining-post-container h2 {
+  font-size: 2.2rem;
+  color: #00fff7;
+  text-shadow: 0 0 10px #00fff788;
+  margin-bottom: 25px;
+}
+.mining-post-container .excerpt {
+  background: linear-gradient(145deg, #0e1c2a, #162c3f);
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-style: italic;
+  color: #7fffd4;
+  text-shadow: 0 0 8px #00ffc2a8;
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+  margin-bottom: 30px;
+}
+.mining-post-container h3 {
+  color: #00eaff;
+  font-size: 1.5rem;
+  margin-top: 30px;
+  text-shadow: 0 0 8px #00d9ff99;
+}
+.mining-post-container p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 10px 0 20px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+pre[class*="language-"] {
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .mining-post-container { width: 90%; padding: 20px; }
+}
+</style>
+<div class="mining-post-container">
+<h2>Tutorial: Build a Multi-Coin Mining Rig with XMRig, RTM, and VerusHash</h2>
+<div class="excerpt">
+    Ready to mine XMR (RandomX), RTM (GhostRider), and Verus (VerusHash)? This step-by-step tutorial equips you with tools, scripts, and automation to set up and optimize a multi-coin mining rig on Linux.
+  </div>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f6e0.png" alt="🛠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 1: Gather Essential Mining Tools</h3>
+<p>
+    First, install the core tools for mining:</p>
+<ul>
+<li>XMRig for Monero (XMR): <code>https://xmrig.com</code></li>
+<li>RTM Core Wallet: <code>https://rtmcoin.pro</code></li>
+<li>Verus Desktop: <code>https://verus.io</code></li>
+</ul>
+<p>    Install dependencies:
+  </p>
+<pre><code class="language-bash">sudo apt install build-essential cmake htop</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e5.png" alt="📥" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 2: Install and Configure XMRig (RandomX)</h3>
+<p>Download and extract XMRig:</p>
+<pre><code class="language-bash">
+wget https://github.com/xmrig/xmrig/releases/download/v6.21.0/xmrig-6.21.0-linux-x64.tar.gz
+tar -xvf xmrig-6.21.0-linux-x64.tar.gz
+cd xmrig-6.21.0
+</code></pre>
+<p>Create a <code>config.json</code>:</p>
+<pre><code class="language-json">{
+  "pools": [
+    {
+      "url": "pool.supportxmr.com:5555",
+      "user": "YOUR_XMR_ADDRESS",
+      "pass": "x",
+      "keepalive": true,
+      "tls": false
+    }
+  ],
+  "cpu": {
+    "enabled": true,
+    "huge-pages": true,
+    "threads": 2,
+    "priority": 1
+  },
+  "log-file": "xmrig.log",
+  "verbose": 2
+}</code></pre>
+<p>Start mining:</p>
+<pre><code class="language-bash">./xmrig --config=config.json</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4bb.png" alt="💻" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 3: Set Up RTM with GhostRider</h3>
+<pre><code class="language-bash">
+wget https://rtmcoin.pro/downloads/rtm-core-latest-linux.tar.gz
+tar -xvf rtm-core-latest-linux.tar.gz
+cd rtm-core
+./rtm-core-install.sh
+</code></pre>
+<p>Edit <code>~/.rtm/rtm.conf</code>:</p>
+<pre><code class="language-properties">
+rpcuser=youruser
+rpcpassword=yourpass
+rpcallowip=127.0.0.1
+rpcport=8332
+server=1
+</code></pre>
+<p>Create <code>start-rtm.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+RTM_DIR="/path/to/rtm-core"
+LOG="rtm-mining-$(date +%F).log"
+
+cd $RTM_DIR || exit
+echo "[*] Starting RTM mining..." | tee $LOG
+./rtm-cli -rpcuser=youruser -rpcpassword=yourpass startmining &</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f527.png" alt="🔧" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 4: VerusHash Mining (Verus)</h3>
+<p>Build Verus miner:</p>
+<pre><code class="language-bash">
+git clone https://github.com/VerusCoin/nheqminer.git
+cd nheqminer
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+</code></pre>
+<p>Create <code>tune-verus.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+echo "[*] Tuning VerusHash performance..."
+sysctl -w vm.nr_hugepages=128
+echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+./nheqminer -l vrsc.miner.rocks:3333 -u YOUR_VRSC_ADDRESS -p x &
+echo "[+] VerusHash optimized and running"
+</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f916.png" alt="🤖" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 5: Master Script: <code>mine-all.sh</code></h3>
+<pre><code class="language-bash">#!/bin/bash
+echo "[*] Starting all miners..."
+cd /path/to/xmrig && ./xmrig --config=config.json &
+cd /path/to/rtm-core && ./start-rtm.sh &
+cd /path/to/nheqminer/build && ./tune-verus.sh &
+echo "[+] All mining processes started"
+</code></pre>
+<p>Schedule mining on boot:</p>
+<pre><code class="language-bash">@reboot /path/to/mine-all.sh</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ca.png" alt="📊" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 6: Monitor Hashrate</h3>
+<p>Create <code>monitor-hash.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+LOG="hashrate-$(date +%F).log"
+echo "[*] Checking hashrates..." | tee $LOG
+grep "speed" /path/to/xmrig/xmrig.log | tail -1 | tee -a $LOG
+curl -s http://127.0.0.1:8332 -u youruser:yourpass -d '{"method":"getmininginfo"}' | tee -a $LOG
+pidof nheqminer && echo "VerusHash running" || echo "VerusHash stopped" | tee -a $LOG
+</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f50d.png" alt="🔍" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 7: Troubleshoot</h3>
+<ul>
+<li><strong>Low Hashrate:</strong> Enable hugepages &#038; check CPU governor</li>
+<li><strong>Pool Errors:</strong> Validate pool config &#038; TLS settings</li>
+<li><strong>High Temps:</strong> Reduce threads or CPU intensity</li>
+</ul>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f31f.png" alt="🌟" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 8: Scale + Share</h3>
+<p>Add failover pools in <code>config.json</code>, tweak thread counts, and share your scripts on Miner Hub&#8217;s X!</p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=530</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>🔐 &#8220;Terminal Tripwire: Build a Real-Time Intrusion Alert System on Linux (DIY SIEM Lite)&#8221;</title>
+		<link>http://192.168.1.108/?p=528</link>
+					<comments>http://192.168.1.108/?p=528#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sun, 01 Jun 2025 15:05:18 +0000</pubDate>
+				<category><![CDATA[Security & Hacking]]></category>
+		<category><![CDATA[Tools & Scripts]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=528</guid>
+
+					<description><![CDATA[🔐 Terminal Tripwire: Build a Real-Time Intrusion Alert System on Linux (DIY SIEM Lite) Turn your Linux terminal into a security sensor. In this guide, you&#8217;ll build a lightweight intrusion detection system using bash, inotify, and Telegram — no bloated software, no excuses. 👀 Introduction Not all threats need enterprise tools to detect. With a few native Linux utilities, you can monitor your system for suspicious activity and receive **real-time alerts** straight to your device. Think of it as a custom-built, hacker-grade tripwire system — perfect for servers, home labs, and mining rigs. 🔧 What You&#8217;ll Build A bash-based watcher that: Monitors sensitive directories for file events (create, delete, access) Watches for login failures and suspicious auth logs Notifies you instantly via Telegram 🛠️ Requirements - A Debian/Ubuntu Linux machine - Root/sudo access - Telegram account - curl, inotify-tools 🚀 Step 1: Install Required Tools Install the `inotify-tools` package to monitor filesystem changes. sudo apt update sudo apt install inotify-tools curl 📦 Step 2: Create a Telegram Bot Open Telegram and search for @BotFather Run /newbot and follow instructions Save the generated bot token Next, get your personal chat ID (or a group ID if you’re monitoring with a team): curl -s https://api.telegram.org/bot&#60;your_token&#62;/getUpdates Send a test message to the bot and check the response for your chat ID. ⚠️ Step 3: Create Your Alert Script Save this as /opt/defense/send_alert.sh and make it executable: #!/bin/bash TOKEN="your_bot_token" CHAT_ID="your_chat_id" MESSAGE="$1" curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="$MESSAGE" chmod +x /opt/defense/send_alert.sh 📡 Step 4: Monitor Sensitive Folders Create a watcher script: #!/bin/bash WATCHDIR="/etc" inotifywait -m -e access,create,delete $WATCHDIR &#124; while read line do /opt/defense/send_alert.sh "🚨 Activity detected in $WATCHDIR: $line" done Make it executable and test it by creating or reading files in /etc: touch /etc/testfile cat /etc/passwd 🔐 Step 5: Monitor SSH Brute Force Attempts tail -Fn0 /var/log/auth.log &#124; \ while read line ; do echo "$line" &#124; grep "Failed password" &#62;/dev/null if [ $? = 0 ]; then /opt/defense/send_alert.sh "🔐 SSH Alert: $line" fi done 🧠 Bonus: Add Persistence with Cron Add the watchers to cron so they restart on reboot: @reboot /opt/defense/folder_watch.sh &#38; @reboot /opt/defense/ssh_watch.sh &#38; ✅ Final Thoughts This is not a replacement for full-blown SIEMs or firewalls — it&#8217;s a rapid-response terminal toolkit that gives you visibility and control. Pair it with fail2ban, proper firewalling, and rootkit scanning for a layered defense. Got a mining rig, web server, or homelab? Don&#8217;t leave it blind — **build your terminal tripwire today.**]]></description>
+										<content:encoded><![CDATA[ <div class="mining-post-container"><style> .mining-post-container { font-family: 'Share Tech Mono', monospace; background: linear-gradient(135deg, #0a111d, #141f30); color: #e0f7ff; border-radius: 20px; padding: 35px; margin-bottom: 40px; box-shadow: 0 0 30px rgba(0, 255, 200, 0.12); animation: fadeIn 1.8s ease-in-out; }
+.mining-post-container h2 {
+font-size: 2.2rem;
+color: #00fff7;
+text-shadow: 0 0 10px #00fff788;
+margin-bottom: 25px;
+}
+
+.mining-post-container .excerpt {
+background: linear-gradient(145deg, #0e1c2a, #162c3f);
+padding: 15px 20px;
+border-radius: 12px;
+font-style: italic;
+color: #7fffd4;
+text-shadow: 0 0 8px #00ffc2a8;
+box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+margin-bottom: 30px;
+}
+
+.mining-post-container h3 {
+color: #00eaff;
+font-size: 1.5rem;
+margin-top: 30px;
+text-shadow: 0 0 8px #00d9ff99;
+}
+
+.mining-post-container p {
+line-height: 1.7;
+font-size: 1.1rem;
+margin: 10px 0 20px;
+background: rgba(0, 0, 0, 0.35);
+padding: 12px 18px;
+border-radius: 10px;
+}
+
+pre {
+background-color: #0b0f14;
+color: #1affff;
+padding: 20px;
+border-radius: 12px;
+overflow-x: auto;
+box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+margin-top: 15px;
+}
+
+code {
+color: #aaffee;
+font-family: 'Fira Code', monospace;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<h2><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f510.png" alt="🔐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Terminal Tripwire: Build a Real-Time Intrusion Alert System on Linux (DIY SIEM Lite)</h2> <div class="excerpt">Turn your Linux terminal into a security sensor. In this guide, you&#8217;ll build a lightweight intrusion detection system using bash, inotify, and Telegram — no bloated software, no excuses.</div> <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f440.png" alt="👀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Introduction</h3> <p>Not all threats need enterprise tools to detect. With a few native Linux utilities, you can monitor your system for suspicious activity and receive **real-time alerts** straight to your device. Think of it as a custom-built, hacker-grade tripwire system — perfect for servers, home labs, and mining rigs.</p> <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f527.png" alt="🔧" class="wp-smiley" style="height: 1em; max-height: 1em;" /> What You&#8217;ll Build</h3> <p> A bash-based watcher that: <ul> <li>Monitors sensitive directories for file events (create, delete, access)</li> <li>Watches for login failures and suspicious auth logs</li> <li>Notifies you instantly via Telegram</li> </ul> </p> <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f6e0.png" alt="🛠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Requirements</h3> <pre><code>- A Debian/Ubuntu Linux machine - Root/sudo access - Telegram account - curl, inotify-tools</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 1: Install Required Tools</h3> <p>Install the `inotify-tools` package to monitor filesystem changes.</p> <pre><code>sudo apt update sudo apt install inotify-tools curl</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e6.png" alt="📦" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 2: Create a Telegram Bot</h3> <ol> <li>Open Telegram and search for <code>@BotFather</code></li> <li>Run <code>/newbot</code> and follow instructions</li> <li>Save the generated <strong>bot token</strong></li> </ol> <p>Next, get your personal chat ID (or a group ID if you’re monitoring with a team):</p> <pre><code>curl -s https://api.telegram.org/bot&lt;your_token&gt;/getUpdates</code></pre> <p>Send a test message to the bot and check the response for your chat ID.</p>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/26a0.png" alt="⚠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 3: Create Your Alert Script</h3> <p>Save this as <code>/opt/defense/send_alert.sh</code> and make it executable:</p> <pre><code>#!/bin/bash TOKEN="your_bot_token" CHAT_ID="your_chat_id" MESSAGE="$1"
+curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage
+-d chat_id=$CHAT_ID -d text="$MESSAGE"</code></pre>
+
+<pre><code>chmod +x /opt/defense/send_alert.sh</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e1.png" alt="📡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 4: Monitor Sensitive Folders</h3> <p>Create a watcher script:</p> <pre><code>#!/bin/bash WATCHDIR="/etc" inotifywait -m -e access,create,delete $WATCHDIR | while read line do /opt/defense/send_alert.sh "&#x1f6a8; Activity detected in $WATCHDIR: $line" done</code></pre> <p>Make it executable and test it by creating or reading files in /etc:</p> <pre><code>touch /etc/testfile cat /etc/passwd</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f510.png" alt="🔐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 5: Monitor SSH Brute Force Attempts</h3> <pre><code>tail -Fn0 /var/log/auth.log | \ while read line ; do echo "$line" | grep "Failed password" &gt;/dev/null if [ $? = 0 ]; then /opt/defense/send_alert.sh "&#x1f510; SSH Alert: $line" fi done</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Bonus: Add Persistence with Cron</h3> <p>Add the watchers to cron so they restart on reboot:</p> <pre><code>@reboot /opt/defense/folder_watch.sh &amp; @reboot /opt/defense/ssh_watch.sh &amp;</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2705.png" alt="✅" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Final Thoughts</h3> <p>This is not a replacement for full-blown SIEMs or firewalls — it&#8217;s a rapid-response terminal toolkit that gives you visibility and control. Pair it with fail2ban, proper firewalling, and rootkit scanning for a layered defense.</p> <p>Got a mining rig, web server, or homelab? Don&#8217;t leave it blind — **build your terminal tripwire today.**</p> </div> ]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=528</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Defense by Design: Recon, Harden, and Automate with Tactical Shell Scripts</title>
+		<link>http://192.168.1.108/?p=340</link>
+					<comments>http://192.168.1.108/?p=340#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sun, 25 May 2025 15:55:20 +0000</pubDate>
+				<category><![CDATA[Security & Hacking]]></category>
+		<category><![CDATA[Tools & Scripts]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=340</guid>
+
+					<description><![CDATA[Defense by Design: Recon, Harden, and Automate with Tactical Shell Scripts Step beyond the basics. This guide reveals how ethical hackers can create proactive, self-healing defenses using advanced recon and automation scripts — all from your terminal. 📡 Network Recon &#038; Auto-Mapping Map out your LAN, identify rogue devices, and store logs automatically with this Bash + Nmap combo: #!/bin/bash subnet="192.168.1.0/24" log="lan-scan-$(date +%F).log" echo "[*] Scanning LAN..." &#124; tee $log nmap -sn $subnet &#124; tee -a $log echo "[+] Devices logged to $log" This gives you daily visibility into what&#8217;s live. Hook it to a cron job and sleep easy. 🛡 Auto-Hardening Linux: Defense via Script Automate firewall, SSH, and root login protection in one swoop: #!/bin/bash echo "[*] Hardening firewall..." ufw default deny incoming ufw default allow outgoing ufw allow ssh ufw enable echo "[*] Disabling root SSH login..." sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config systemctl restart sshd echo "[*] Installing fail2ban..." apt install -y fail2ban systemctl enable fail2ban systemctl start fail2ban One command, and your server’s shielded. Pair this with monitoring tools for full defense cycles. 🎯 Auto-Ban Suspicious Traffic Let logs tell you when to strike — here’s a live-monitor that scans for brute-force attempts: #!/bin/bash tail -F /var/log/auth.log &#124; while read line; do echo "$line" &#124; grep "Failed password" &#038;>/dev/null if [ $? -eq 0 ]; then ip=$(echo "$line" &#124; awk '{print $(NF-3)}') echo "[!] Detected brute force from $ip" ufw deny from $ip fi done Turn log lines into real-time triggers. Fully customizable for any log pattern or service. 🔁 Schedule, Repeat, Defend Use `cron` to automate these at boot or regular intervals. For example: # Daily recon at 7 AM 0 7 * * * /opt/scripts/lan-recon.sh # Auto-hardening on reboot @reboot /opt/scripts/harden.sh Your system becomes a living fortress — updating, logging, and fighting threats while you sleep. ⚔️ Bring it All Together Combine these into a suite and version it with Git. Share improvements, integrate with your XMR/RTM mining scripts, or build a remote command dashboard. 💬 Stay Sharp, Stay Secure Got ideas for advanced traps, honeypots, or alert systems? Share them. Let&#8217;s evolve the defense layer together — script by script, signal by signal.]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container"><style>
+  .mining-post-container {
+    font-family: 'Share Tech Mono', monospace;
+    background: linear-gradient(135deg, #0a111d, #141f30);
+    color: #e0f7ff;
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 30px rgba(0, 255, 200, 0.12);
+    animation: fadeIn 1.8s ease-in-out;
+  }
+
+  .mining-post-container h2 {
+    font-size: 2.2rem;
+    color: #00fff7;
+    text-shadow: 0 0 10px #00fff788;
+    margin-bottom: 25px;
+  }
+
+  .mining-post-container .excerpt {
+    background: linear-gradient(145deg, #0e1c2a, #162c3f);
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-style: italic;
+    color: #7fffd4;
+    text-shadow: 0 0 8px #00ffc2a8;
+    box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+    margin-bottom: 30px;
+  }
+
+  .mining-post-container h3 {
+    color: #00eaff;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    text-shadow: 0 0 8px #00d9ff99;
+  }
+
+  .mining-post-container p {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin: 10px 0 20px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 12px 18px;
+    border-radius: 10px;
+  }
+
+  pre {
+    background-color: #0b0f14;
+    color: #1affff;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+    margin-top: 15px;
+  }
+
+  code {
+    color: #aaffee;
+    font-family: 'Fira Code', monospace;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<h2>Defense by Design: Recon, Harden, and Automate with Tactical Shell Scripts</h2>
+<div class="excerpt">Step beyond the basics. This guide reveals how ethical hackers can create proactive, self-healing defenses using advanced recon and automation scripts — all from your terminal.</div>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e1.png" alt="📡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Network Recon &#038; Auto-Mapping</h3>
+<p>Map out your LAN, identify rogue devices, and store logs automatically with this Bash + Nmap combo:</p>
+<pre><code>
+#!/bin/bash
+subnet="192.168.1.0/24"
+log="lan-scan-$(date +%F).log"
+echo "[*] Scanning LAN..." | tee $log
+nmap -sn $subnet | tee -a $log
+echo "[+] Devices logged to $log"
+</code></pre>
+<p>This gives you daily visibility into what&#8217;s live. Hook it to a cron job and sleep easy.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f6e1.png" alt="🛡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Auto-Hardening Linux: Defense via Script</h3>
+<p>Automate firewall, SSH, and root login protection in one swoop:</p>
+<pre><code>
+#!/bin/bash
+echo "[*] Hardening firewall..."
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow ssh
+ufw enable
+
+echo "[*] Disabling root SSH login..."
+sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
+systemctl restart sshd
+
+echo "[*] Installing fail2ban..."
+apt install -y fail2ban
+systemctl enable fail2ban
+systemctl start fail2ban
+</code></pre>
+<p>One command, and your server’s shielded. Pair this with monitoring tools for full defense cycles.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f3af.png" alt="🎯" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Auto-Ban Suspicious Traffic</h3>
+<p>Let logs tell you when to strike — here’s a live-monitor that scans for brute-force attempts:</p>
+<pre><code>
+#!/bin/bash
+tail -F /var/log/auth.log | while read line; do
+  echo "$line" | grep "Failed password" &>/dev/null
+  if [ $? -eq 0 ]; then
+    ip=$(echo "$line" | awk '{print $(NF-3)}')
+    echo "[!] Detected brute force from $ip"
+    ufw deny from $ip
+  fi
+done
+</code></pre>
+<p>Turn log lines into real-time triggers. Fully customizable for any log pattern or service.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f501.png" alt="🔁" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Schedule, Repeat, Defend</h3>
+<p>Use `cron` to automate these at boot or regular intervals. For example:</p>
+<pre><code>
+# Daily recon at 7 AM
+0 7 * * * /opt/scripts/lan-recon.sh
+
+# Auto-hardening on reboot
+@reboot /opt/scripts/harden.sh
+</code></pre>
+<p>Your system becomes a living fortress — updating, logging, and fighting threats while you sleep.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2694.png" alt="⚔" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Bring it All Together</h3>
+<p>Combine these into a suite and version it with Git. Share improvements, integrate with your XMR/RTM mining scripts, or build a remote command dashboard.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ac.png" alt="💬" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Stay Sharp, Stay Secure</h3>
+<p>Got ideas for advanced traps, honeypots, or alert systems? Share them. Let&#8217;s evolve the defense layer together — script by script, signal by signal.</p>
+</div>
+
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=340</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Linux DIY &#8211; CyberGridX</title>
+	<atom:link href="http://192.168.1.108/?feed=rss2&#038;cat=13" rel="self" type="application/rss+xml" />
+	<link>http://192.168.1.108</link>
+	<description></description>
+	<lastBuildDate>Tue, 03 Jun 2025 19:35:53 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.8.1</generator>
+
+<image>
+	<url>http://192.168.1.108/wp-content/uploads/2025/05/icon.png</url>
+	<title>Linux DIY &#8211; CyberGridX</title>
+	<link>http://192.168.1.108</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>&#8220;Create a Local Mirror Repo Server- Speed up installs and save bandwidth across multiple systems&#8221;</title>
+		<link>http://192.168.1.108/?p=572</link>
+					<comments>http://192.168.1.108/?p=572#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2025 18:50:34 +0000</pubDate>
+				<category><![CDATA[Linux DIY]]></category>
+		<category><![CDATA[Performance Tuning]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=572</guid>
+
+					<description><![CDATA[Create a Local Mirror Repo Server to Speed Up Package Management Managing multiple Linux systems often means downloading the same package updates repeatedly, wasting bandwidth and time. Setting up a local mirror repository centralizes downloads, accelerating installations across your network. This tutorial guides you through creating a local mirror server on Ubuntu/Debian using apt-mirror and Apache. Why Create a Local Mirror? A local mirror server caches packages from official repositories, so your client machines pull updates directly from it instead of repeatedly fetching from the internet. This reduces bandwidth consumption, speeds up updates, and is perfect for environments like offices, labs, or mining farms with multiple Linux nodes. Requirements A Linux server (Ubuntu/Debian preferred) with 20+ GB of free disk space Basic command-line proficiency Root or sudo access on the server Clients configured to use the mirror server for package updates Step 1: Prepare Your Server Update the server and install required packages: sudo apt update &#038;& sudo apt upgrade -y sudo apt install apt-mirror apache2 -y Step 2: Configure apt-mirror Edit the mirror configuration file to specify the repositories to mirror: sudo nano /etc/apt/mirror.list Use a minimal configuration like this (replace &#8220;focal&#8221; with your Ubuntu/Debian release): set base_path /var/spool/apt-mirror set mirror_path $base_path/mirror set skel_path $base_path/skel set var_path $base_path/var set cleanscript $var_path/clean.sh set defaultarch amd64 set nthreads 20 set _tilde 0 deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse clean http://archive.ubuntu.com/ubuntu clean http://security.ubuntu.com/ubuntu Tip: Adjust URLs and release names to match your desired mirror target. Step 3: Run the Mirror Sync Start the initial synchronization of packages. This may take several hours depending on your internet speed and selected repos: sudo apt-mirror Step 4: Serve the Mirror via Apache Configure Apache to serve the mirrored repository: sudo nano /etc/apache2/sites-available/apt-mirror.conf Add this configuration: &#60;VirtualHost *:80&#62; ServerAdmin admin@yourdomain.local DocumentRoot /var/spool/apt-mirror/mirror ServerName apt-mirror.local &#60;Directory /var/spool/apt-mirror/mirror&#62; Options Indexes FollowSymLinks AllowOverride None Require all granted &#60;/Directory&#62; ErrorLog ${APACHE_LOG_DIR}/apt-mirror_error.log CustomLog ${APACHE_LOG_DIR}/apt-mirror_access.log combined &#60;/VirtualHost&#62; Enable the new site and reload Apache: sudo a2ensite apt-mirror.conf sudo systemctl reload apache2 Step 5: Configure Client Machines On each client machine, edit /etc/apt/sources.list to point to your mirror server instead of the internet URLs: deb http://your-server-ip-or-hostname/ubuntu focal main restricted universe multiverse deb http://your-server-ip-or-hostname/ubuntu focal-updates main restricted universe multiverse deb http://your-server-ip-or-hostname/ubuntu focal-security main restricted universe multiverse Then update the package lists: sudo apt update Step 6: Automate Mirror Updates Set up a daily cron job to keep your mirror updated automatically: sudo crontab -e Add the following line to run apt-mirror every day at 3 AM: 0 3 * * * /usr/bin/apt-mirror > /var/log/apt-mirror.log 2>&#038;1 Troubleshooting &#38; Tips Ensure your firewall allows HTTP traffic (port 80) to the mirror server. Check Apache logs for access or permission issues in /var/log/apache2/. Adjust nthreads in mirror.list to optimize performance based on your hardware. Use sudo apt-mirror --help for advanced options. You can mirror additional repos or PPAs by adding lines to mirror.list]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container">
+  <style>
+    .mining-post-container {
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #080f19, #111d2f);
+      color: #e0f2ff;
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    .mining-post-container h2 {
+      font-size: 2.2rem;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff788;
+      margin-bottom: 25px;
+    }
+    .mining-post-container .excerpt {
+      background: linear-gradient(145deg, #0c1a26, #15293c);
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-style: italic;
+      color: #7fffd4;
+      text-shadow: 0 0 8px #00ffc2a8;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+      margin-bottom: 30px;
+    }
+    .mining-post-container h3 {
+      color: #00eaff;
+      font-size: 1.5rem;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #00d9ff99;
+    }
+    .mining-post-container p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin: 10px 0 20px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+    pre {
+      background-color: #0b0f14;
+      color: #1affff;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+      margin-top: 15px;
+    }
+    code {
+      color: #aaffee;
+      font-family: 'Fira Code', monospace;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #00fff7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <h2>Create a Local Mirror Repo Server to Speed Up Package Management</h2>
+  <div class="excerpt">
+    Managing multiple Linux systems often means downloading the same package updates repeatedly, wasting bandwidth and time. 
+    Setting up a local mirror repository centralizes downloads, accelerating installations across your network. 
+    This tutorial guides you through creating a local mirror server on Ubuntu/Debian using <code>apt-mirror</code> and Apache.
+  </div>
+
+  <h3>Why Create a Local Mirror?</h3>
+  <p>
+    A local mirror server caches packages from official repositories, so your client machines pull updates directly from it instead of repeatedly fetching from the internet.
+    This reduces bandwidth consumption, speeds up updates, and is perfect for environments like offices, labs, or mining farms with multiple Linux nodes.
+  </p>
+
+  <h3>Requirements</h3>
+  <ul>
+    <li>A Linux server (Ubuntu/Debian preferred) with 20+ GB of free disk space</li>
+    <li>Basic command-line proficiency</li>
+    <li>Root or sudo access on the server</li>
+    <li>Clients configured to use the mirror server for package updates</li>
+  </ul>
+
+  <h3>Step 1: Prepare Your Server</h3>
+  <p>Update the server and install required packages:</p>
+  <pre><code class="language-bash">sudo apt update && sudo apt upgrade -y
+sudo apt install apt-mirror apache2 -y
+  </code></pre>
+
+  <h3>Step 2: Configure <code>apt-mirror</code></h3>
+  <p>Edit the mirror configuration file to specify the repositories to mirror:</p>
+  <pre><code class="language-bash">sudo nano /etc/apt/mirror.list
+  </code></pre>
+  <p>Use a minimal configuration like this (replace &#8220;focal&#8221; with your Ubuntu/Debian release):</p>
+  <pre><code class="language-config">set base_path /var/spool/apt-mirror
+set mirror_path $base_path/mirror
+set skel_path $base_path/skel
+set var_path $base_path/var
+set cleanscript $var_path/clean.sh
+set defaultarch amd64
+set nthreads 20
+set _tilde 0
+
+deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse
+
+clean http://archive.ubuntu.com/ubuntu
+clean http://security.ubuntu.com/ubuntu
+  </code></pre>
+  <p><em>Tip:</em> Adjust URLs and release names to match your desired mirror target.</p>
+
+  <h3>Step 3: Run the Mirror Sync</h3>
+  <p>Start the initial synchronization of packages. This may take several hours depending on your internet speed and selected repos:</p>
+  <pre><code class="language-bash">sudo apt-mirror
+  </code></pre>
+
+  <h3>Step 4: Serve the Mirror via Apache</h3>
+  <p>Configure Apache to serve the mirrored repository:</p>
+  <pre><code class="language-bash">sudo nano /etc/apache2/sites-available/apt-mirror.conf
+  </code></pre>
+  <p>Add this configuration:</p>
+  <pre><code class="language-config">&lt;VirtualHost *:80&gt;
+    ServerAdmin admin@yourdomain.local
+    DocumentRoot /var/spool/apt-mirror/mirror
+    ServerName apt-mirror.local
+
+    &lt;Directory /var/spool/apt-mirror/mirror&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    &lt;/Directory&gt;
+
+    ErrorLog ${APACHE_LOG_DIR}/apt-mirror_error.log
+    CustomLog ${APACHE_LOG_DIR}/apt-mirror_access.log combined
+&lt;/VirtualHost&gt;
+  </code></pre>
+
+  <p>Enable the new site and reload Apache:</p>
+  <pre><code class="language-bash">sudo a2ensite apt-mirror.conf
+sudo systemctl reload apache2
+  </code></pre>
+
+  <h3>Step 5: Configure Client Machines</h3>
+  <p>On each client machine, edit <code>/etc/apt/sources.list</code> to point to your mirror server instead of the internet URLs:</p>
+  <pre><code class="language-bash">deb http://your-server-ip-or-hostname/ubuntu focal main restricted universe multiverse
+deb http://your-server-ip-or-hostname/ubuntu focal-updates main restricted universe multiverse
+deb http://your-server-ip-or-hostname/ubuntu focal-security main restricted universe multiverse
+  </code></pre>
+  <p>Then update the package lists:</p>
+  <pre><code class="language-bash">sudo apt update
+  </code></pre>
+
+  <h3>Step 6: Automate Mirror Updates</h3>
+  <p>Set up a daily cron job to keep your mirror updated automatically:</p>
+  <pre><code class="language-bash">sudo crontab -e
+  </code></pre>
+  <p>Add the following line to run <code>apt-mirror</code> every day at 3 AM:</p>
+  <pre><code class="language-cron">0 3 * * * /usr/bin/apt-mirror > /var/log/apt-mirror.log 2>&1
+  </code></pre>
+
+  <h3>Troubleshooting &amp; Tips</h3>
+  <ul>
+    <li>Ensure your firewall allows HTTP traffic (port 80) to the mirror server.</li>
+    <li>Check Apache logs for access or permission issues in <code>/var/log/apache2/</code>.</li>
+    <li>Adjust <code>nthreads</code> in <code>mirror.list</code> to optimize performance based on your hardware.</li>
+    <li>Use <code>sudo apt-mirror --help</code> for advanced options.</li>
+    <li>You can mirror additional repos or PPAs by adding lines to <code>mirror.list
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=572</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

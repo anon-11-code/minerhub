@@ -1,0 +1,1644 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>anon &#8211; CyberGridX</title>
+	<atom:link href="http://192.168.1.108/?feed=rss2&#038;author=1" rel="self" type="application/rss+xml" />
+	<link>http://192.168.1.108</link>
+	<description></description>
+	<lastBuildDate>Tue, 03 Jun 2025 19:35:53 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.8.1</generator>
+
+<image>
+	<url>http://192.168.1.108/wp-content/uploads/2025/05/icon.png</url>
+	<title>anon &#8211; CyberGridX</title>
+	<link>http://192.168.1.108</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>&#8220;Mining on Android Smart TV Boxes&#8221;</title>
+		<link>http://192.168.1.108/?p=578</link>
+					<comments>http://192.168.1.108/?p=578#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2025 19:33:56 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=578</guid>
+
+					<description><![CDATA[Low-Power Mining on Android TV Boxes Got an Android TV Box gathering dust? Turn it into a low-power mining device for Monero (XMR) or Raptoreum (RTM)! This guide shows you how to install Linux on Android using Termux or UserLAnd, and run CPU-based miners like XMRig. Perfect for experimental miners or tech DIYers looking to repurpose affordable hardware. Why Mine on Android TV Boxes? Android TV boxes are cheap, compact, and always plugged in—making them interesting candidates for passive, low-power crypto mining. While you won’t earn big, it’s a fun way to learn, experiment, and make use of spare devices. 💡 Ideal for Monero (XMR) or RTM (Ghostrider) 🔋 Very low power consumption (5–10W) 📶 Easily connected via Wi-Fi or Ethernet 💻 Useful for testing mining algorithms Requirements An Android TV box (preferably with an ARMv8 64-bit CPU) USB keyboard/mouse or remote input app Internet access (Wi-Fi or LAN) 8GB+ free space and 2GB+ RAM recommended Apps: Termux, UserLAnd, or Linux Deploy Option 1: Mining with Termux (No Root Required) Install Termux from F-Droid or GitHub (not Play Store): pkg update &#038;& pkg upgrade -y pkg install git build-essential cmake curl clang openssl-dev -y termux-setup-storage Clone and build XMRig (RandomX miner): git clone https://github.com/xmrig/xmrig.git cd xmrig mkdir build &#038;& cd build cmake .. -DWITH_HWLOC=OFF make -j$(nproc) Create a simple XMRig config in config.json (minimal example): { "autosave": true, "cpu": true, "pools": [ { "url": "pool.supportxmr.com:3333", "user": "YOUR_XMR_WALLET_ADDRESS", "pass": "android-tv", "keepalive": true, "tls": false } ] } Start mining: ./xmrig Option 2: Using UserLAnd for Full Debian/Ubuntu Environment UserLAnd lets you run a full Debian or Ubuntu system in a container with a GUI or CLI interface. Install UserLAnd from F-Droid or Play Store. Create a new Ubuntu session, set username/password/SSH access. Connect via SSH or built-in terminal. Update system and install dependencies: sudo apt update &#038;& sudo apt install git build-essential cmake libssl-dev -y git clone https://github.com/xmrig/xmrig.git cd xmrig &#038;& mkdir build &#038;& cd build cmake .. &#038;& make -j$(nproc) Power &#038; Thermal Notes Use passive heat sinks or small USB fans if the device gets warm. Underclocking can help reduce temperatures. Keep the device in a well-ventilated area. Recommended TV Boxes for Mining Beelink GT1 (Amlogic S912) X96 Max Plus (Amlogic S905X3) MINIX NEO U9-H (Rockchip/Amlogic CPUs) Profitability &#038; Use Cases Don’t expect big returns. Use this setup for: 🧠 Learning Linux and mining fundamentals 🧪 Stress testing your network or farm setups 🔁 Donating CPU cycles to mining pools or development nodes What&#8217;s Next? You can run this miner as a background service or script on boot using Termux&#8217;s boot plugin or Linux Deploy autostart scripts. You can also experiment with other coins like RTM using xmrig-ghostrider builds. Conclusion Android TV Boxes are surprisingly capable of running light crypto mining operations using open-source tools. While not profitable in the traditional sense, they’re perfect for low-energy miners, learners, or anyone interested in tech DIY. Dust yours off and turn it into a 24/7 digital worker. 💬 Got a favorite box or build? Drop it in the comments or join our Discord to share your results!]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container">
+  <style>
+    .mining-post-container {
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #080f19, #111d2f);
+      color: #e0f2ff;
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    .mining-post-container h2 {
+      font-size: 2.2rem;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff788;
+      margin-bottom: 25px;
+    }
+    .mining-post-container .excerpt {
+      background: linear-gradient(145deg, #0c1a26, #15293c);
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-style: italic;
+      color: #7fffd4;
+      text-shadow: 0 0 8px #00ffc2a8;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+      margin-bottom: 30px;
+    }
+    .mining-post-container h3 {
+      color: #00eaff;
+      font-size: 1.5rem;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #00d9ff99;
+    }
+    .mining-post-container p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin: 10px 0 20px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+    pre {
+      background-color: #0b0f14;
+      color: #1affff;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+      margin-top: 15px;
+    }
+    code {
+      color: #aaffee;
+      font-family: 'Fira Code', monospace;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #00fff7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <h2>Low-Power Mining on Android TV Boxes</h2>
+  <div class="excerpt">
+    Got an Android TV Box gathering dust? Turn it into a low-power mining device for Monero (XMR) or Raptoreum (RTM)! This guide shows you how to install Linux on Android using Termux or UserLAnd, and run CPU-based miners like XMRig. Perfect for experimental miners or tech DIYers looking to repurpose affordable hardware.
+  </div>
+
+  <h3>Why Mine on Android TV Boxes?</h3>
+  <p>
+    Android TV boxes are cheap, compact, and always plugged in—making them interesting candidates for passive, low-power crypto mining. While you won’t earn big, it’s a fun way to learn, experiment, and make use of spare devices.
+  </p>
+  <ul>
+    <li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4a1.png" alt="💡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Ideal for Monero (XMR) or RTM (Ghostrider)</li>
+    <li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f50b.png" alt="🔋" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Very low power consumption (5–10W)</li>
+    <li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4f6.png" alt="📶" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Easily connected via Wi-Fi or Ethernet</li>
+    <li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4bb.png" alt="💻" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Useful for testing mining algorithms</li>
+  </ul>
+
+  <h3>Requirements</h3>
+  <ul>
+    <li>An Android TV box (preferably with an ARMv8 64-bit CPU)</li>
+    <li>USB keyboard/mouse or remote input app</li>
+    <li>Internet access (Wi-Fi or LAN)</li>
+    <li>8GB+ free space and 2GB+ RAM recommended</li>
+    <li>Apps: <strong>Termux</strong>, <strong>UserLAnd</strong>, or <strong>Linux Deploy</strong></li>
+  </ul>
+
+  <h3>Option 1: Mining with Termux (No Root Required)</h3>
+  <p>Install Termux from F-Droid or GitHub (not Play Store):</p>
+  <pre><code class="language-bash">pkg update && pkg upgrade -y
+pkg install git build-essential cmake curl clang openssl-dev -y
+termux-setup-storage
+  </code></pre>
+
+  <p>Clone and build XMRig (RandomX miner):</p>
+  <pre><code class="language-bash">git clone https://github.com/xmrig/xmrig.git
+cd xmrig
+mkdir build && cd build
+cmake .. -DWITH_HWLOC=OFF
+make -j$(nproc)
+  </code></pre>
+
+  <p>Create a simple XMRig config in <code>config.json</code> (minimal example):</p>
+  <pre><code class="language-json">{
+  "autosave": true,
+  "cpu": true,
+  "pools": [
+    {
+      "url": "pool.supportxmr.com:3333",
+      "user": "YOUR_XMR_WALLET_ADDRESS",
+      "pass": "android-tv",
+      "keepalive": true,
+      "tls": false
+    }
+  ]
+}
+  </code></pre>
+
+  <p>Start mining:</p>
+  <pre><code class="language-bash">./xmrig
+  </code></pre>
+
+  <h3>Option 2: Using UserLAnd for Full Debian/Ubuntu Environment</h3>
+  <p>
+    UserLAnd lets you run a full Debian or Ubuntu system in a container with a GUI or CLI interface.
+  </p>
+  <ol>
+    <li>Install UserLAnd from F-Droid or Play Store.</li>
+    <li>Create a new Ubuntu session, set username/password/SSH access.</li>
+    <li>Connect via SSH or built-in terminal.</li>
+    <li>Update system and install dependencies:</li>
+  </ol>
+
+  <pre><code class="language-bash">sudo apt update && sudo apt install git build-essential cmake libssl-dev -y
+git clone https://github.com/xmrig/xmrig.git
+cd xmrig && mkdir build && cd build
+cmake .. && make -j$(nproc)
+  </code></pre>
+
+  <h3>Power &#038; Thermal Notes</h3>
+  <p>
+    Use passive heat sinks or small USB fans if the device gets warm. Underclocking can help reduce temperatures. Keep the device in a well-ventilated area.
+  </p>
+
+  <h3>Recommended TV Boxes for Mining</h3>
+  <ul>
+    <li><strong>Beelink GT1</strong> (Amlogic S912)</li>
+    <li><strong>X96 Max Plus</strong> (Amlogic S905X3)</li>
+    <li><strong>MINIX NEO U9-H</strong> (Rockchip/Amlogic CPUs)</li>
+  </ul>
+
+  <h3>Profitability &#038; Use Cases</h3>
+  <p>
+    Don’t expect big returns. Use this setup for:
+  </p>
+  <ul>
+    <li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Learning Linux and mining fundamentals</li>
+    <li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9ea.png" alt="🧪" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Stress testing your network or farm setups</li>
+    <li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f501.png" alt="🔁" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Donating CPU cycles to mining pools or development nodes</li>
+  </ul>
+
+  <h3>What&#8217;s Next?</h3>
+  <p>
+    You can run this miner as a background service or script on boot using Termux&#8217;s boot plugin or Linux Deploy autostart scripts. You can also experiment with other coins like <code>RTM</code> using <code>xmrig-ghostrider</code> builds.
+  </p>
+
+  <h3>Conclusion</h3>
+  <p>
+    Android TV Boxes are surprisingly capable of running light crypto mining operations using open-source tools. While not profitable in the traditional sense, they’re perfect for low-energy miners, learners, or anyone interested in tech DIY. Dust yours off and turn it into a 24/7 digital worker.
+  </p>
+
+  <p><strong><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ac.png" alt="💬" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Got a favorite box or build? Drop it in the comments or join our Discord to share your results!</strong></p>
+</div>
+
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=578</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>&#8220;Optimize Ubuntu for Mining: Boost Performance and Stability&#8221;</title>
+		<link>http://192.168.1.108/?p=576</link>
+					<comments>http://192.168.1.108/?p=576#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2025 19:25:46 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<category><![CDATA[Performance Tuning]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=576</guid>
+
+					<description><![CDATA[Optimize Ubuntu for Headless Mining: Boost Performance and Stability Running a mining rig on Ubuntu without a graphical interface (headless) maximizes system resources, reduces overhead, and improves stability. This tutorial walks you through essential optimizations to prepare Ubuntu Server for efficient, low-latency mining—perfect for CPU and GPU miners alike. Requirements Ubuntu Server 20.04 or later installed (headless, no GUI) Basic Linux command-line skills Root or sudo access Installed mining software (e.g., XMRig) Step 1: Update and Upgrade System Always start with the latest updates: sudo apt update &#038;& sudo apt upgrade -y sudo reboot Step 2: Disable Unnecessary Services List running services: systemctl list-units --type=service --state=running Disable common resource-heavy or unused services (adjust as needed): sudo systemctl disable snapd.service sudo systemctl disable cups.service sudo systemctl disable bluetooth.service sudo systemctl disable ModemManager.service sudo systemctl disable whoopsie.service sudo systemctl disable avahi-daemon.service sudo systemctl disable NetworkManager.service Stop these services immediately: sudo systemctl stop snapd.service cups.service bluetooth.service ModemManager.service whoopsie.service avahi-daemon.service NetworkManager.service Step 3: Enable HugePages for RandomX Mining HugePages improve CPU memory management and performance for RandomX-based miners. echo 'vm.nr_hugepages=128' &#124; sudo tee -a /etc/sysctl.conf sudo sysctl -p Verify: grep Huge /proc/meminfo Step 4: Set CPU Governor to Performance Set all CPUs to performance mode to prevent scaling delays: sudo apt install cpufrequtils -y sudo cpufreq-set -r -g performance Make persistent by adding to /etc/rc.local before exit 0: cpufreq-set -r -g performance Step 5: Configure Miner Autostart Create a systemd service to start your miner on boot: sudo nano /etc/systemd/system/xmrig.service Add the following (adjust ExecStart path and args as needed): [Unit] Description=XMRig Miner After=network.target [Service] ExecStart=/usr/local/bin/xmrig --config=/etc/xmrig/config.json Restart=always Nice=10 CPUWeight=90 [Install] WantedBy=multi-user.target Enable and start the service: sudo systemctl daemon-reload sudo systemctl enable xmrig.service sudo systemctl start xmrig.service Step 6: Tune Kernel Parameters for Network and File Handles Edit /etc/sysctl.conf to add these lines for better networking and file handling: sudo nano /etc/sysctl.conf Add at the end: net.core.somaxconn=1024 net.ipv4.tcp_tw_reuse=1 fs.file-max=100000 Apply changes: sudo sysctl -p Step 7: Increase File Descriptor Limits Edit limits configuration: sudo nano /etc/security/limits.conf Add these lines: * soft nofile 100000 * hard nofile 100000 Also update PAM limits by editing /etc/pam.d/common-session* and adding: session required pam_limits.so Step 8: Optional &#8211; Use a Minimal Kernel (for advanced users) Compile a custom kernel without unnecessary modules or use distros like Ubuntu Minimal to reduce bloat. Troubleshooting &#038; Tips Monitor miner logs: journalctl -u xmrig.service -f Check CPU frequency scaling with: cpufreq-info Use htop to verify CPU and memory usage. Keep your miner updated for latest performance patches. Conclusion With these optimizations, your Ubuntu server will run your mining software efficiently, using less power and maximizing uptime. Perfect for dedicated rigs or VPS setups.]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container">
+  <h2>Optimize Ubuntu for Headless Mining: Boost Performance and Stability</h2>
+  <div class="excerpt">
+    Running a mining rig on Ubuntu without a graphical interface (headless) maximizes system resources, reduces overhead, and improves stability.  
+    This tutorial walks you through essential optimizations to prepare Ubuntu Server for efficient, low-latency mining—perfect for CPU and GPU miners alike.
+  </div>
+
+  <h3>Requirements</h3>
+  <ul>
+    <li>Ubuntu Server 20.04 or later installed (headless, no GUI)</li>
+    <li>Basic Linux command-line skills</li>
+    <li>Root or sudo access</li>
+    <li>Installed mining software (e.g., XMRig)</li>
+  </ul>
+
+  <h3>Step 1: Update and Upgrade System</h3>
+  <p>Always start with the latest updates:</p>
+  <pre><code>sudo apt update && sudo apt upgrade -y
+sudo reboot
+</code></pre>
+
+  <h3>Step 2: Disable Unnecessary Services</h3>
+  <p>List running services:</p>
+  <pre><code>systemctl list-units --type=service --state=running
+</code></pre>
+  <p>Disable common resource-heavy or unused services (adjust as needed):</p>
+  <pre><code>sudo systemctl disable snapd.service
+sudo systemctl disable cups.service
+sudo systemctl disable bluetooth.service
+sudo systemctl disable ModemManager.service
+sudo systemctl disable whoopsie.service
+sudo systemctl disable avahi-daemon.service
+sudo systemctl disable NetworkManager.service
+</code></pre>
+  <p>Stop these services immediately:</p>
+  <pre><code>sudo systemctl stop snapd.service cups.service bluetooth.service ModemManager.service whoopsie.service avahi-daemon.service NetworkManager.service
+</code></pre>
+
+  <h3>Step 3: Enable HugePages for RandomX Mining</h3>
+  <p>HugePages improve CPU memory management and performance for RandomX-based miners.</p>
+  <pre><code>echo 'vm.nr_hugepages=128' | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+</code></pre>
+  <p>Verify:</p>
+  <pre><code>grep Huge /proc/meminfo
+</code></pre>
+
+  <h3>Step 4: Set CPU Governor to Performance</h3>
+  <p>Set all CPUs to performance mode to prevent scaling delays:</p>
+  <pre><code>sudo apt install cpufrequtils -y
+sudo cpufreq-set -r -g performance
+</code></pre>
+  <p>Make persistent by adding to <code>/etc/rc.local</code> before <code>exit 0</code>:</p>
+  <pre><code>cpufreq-set -r -g performance
+</code></pre>
+
+  <h3>Step 5: Configure Miner Autostart</h3>
+  <p>Create a systemd service to start your miner on boot:</p>
+  <pre><code>sudo nano /etc/systemd/system/xmrig.service
+</code></pre>
+  <p>Add the following (adjust ExecStart path and args as needed):</p>
+  <pre><code>[Unit]
+Description=XMRig Miner
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/xmrig --config=/etc/xmrig/config.json
+Restart=always
+Nice=10
+CPUWeight=90
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+  <p>Enable and start the service:</p>
+  <pre><code>sudo systemctl daemon-reload
+sudo systemctl enable xmrig.service
+sudo systemctl start xmrig.service
+</code></pre>
+
+  <h3>Step 6: Tune Kernel Parameters for Network and File Handles</h3>
+  <p>Edit <code>/etc/sysctl.conf</code> to add these lines for better networking and file handling:</p>
+  <pre><code>sudo nano /etc/sysctl.conf
+</code></pre>
+  <p>Add at the end:</p>
+  <pre><code>net.core.somaxconn=1024
+net.ipv4.tcp_tw_reuse=1
+fs.file-max=100000
+</code></pre>
+  <p>Apply changes:</p>
+  <pre><code>sudo sysctl -p
+</code></pre>
+
+  <h3>Step 7: Increase File Descriptor Limits</h3>
+  <p>Edit limits configuration:</p>
+  <pre><code>sudo nano /etc/security/limits.conf
+</code></pre>
+  <p>Add these lines:</p>
+  <pre><code>* soft nofile 100000
+* hard nofile 100000
+</code></pre>
+  <p>Also update PAM limits by editing <code>/etc/pam.d/common-session*</code> and adding:</p>
+  <pre><code>session required pam_limits.so
+</code></pre>
+
+  <h3>Step 8: Optional &#8211; Use a Minimal Kernel (for advanced users)</h3>
+  <p>Compile a custom kernel without unnecessary modules or use distros like Ubuntu Minimal to reduce bloat.</p>
+
+  <h3>Troubleshooting &#038; Tips</h3>
+  <ul>
+    <li>Monitor miner logs: <code>journalctl -u xmrig.service -f</code></li>
+    <li>Check CPU frequency scaling with: <code>cpufreq-info</code></li>
+    <li>Use <code>htop</code> to verify CPU and memory usage.</li>
+    <li>Keep your miner updated for latest performance patches.</li>
+  </ul>
+
+  <h3>Conclusion</h3>
+  <p>
+    With these optimizations, your Ubuntu server will run your mining software efficiently, using less power and maximizing uptime. Perfect for dedicated rigs or VPS setups.
+  </p>
+</div>
+
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=576</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>&#8220;Create a Local Mirror Repo Server- Speed up installs and save bandwidth across multiple systems&#8221;</title>
+		<link>http://192.168.1.108/?p=572</link>
+					<comments>http://192.168.1.108/?p=572#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2025 18:50:34 +0000</pubDate>
+				<category><![CDATA[Linux DIY]]></category>
+		<category><![CDATA[Performance Tuning]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=572</guid>
+
+					<description><![CDATA[Create a Local Mirror Repo Server to Speed Up Package Management Managing multiple Linux systems often means downloading the same package updates repeatedly, wasting bandwidth and time. Setting up a local mirror repository centralizes downloads, accelerating installations across your network. This tutorial guides you through creating a local mirror server on Ubuntu/Debian using apt-mirror and Apache. Why Create a Local Mirror? A local mirror server caches packages from official repositories, so your client machines pull updates directly from it instead of repeatedly fetching from the internet. This reduces bandwidth consumption, speeds up updates, and is perfect for environments like offices, labs, or mining farms with multiple Linux nodes. Requirements A Linux server (Ubuntu/Debian preferred) with 20+ GB of free disk space Basic command-line proficiency Root or sudo access on the server Clients configured to use the mirror server for package updates Step 1: Prepare Your Server Update the server and install required packages: sudo apt update &#038;& sudo apt upgrade -y sudo apt install apt-mirror apache2 -y Step 2: Configure apt-mirror Edit the mirror configuration file to specify the repositories to mirror: sudo nano /etc/apt/mirror.list Use a minimal configuration like this (replace &#8220;focal&#8221; with your Ubuntu/Debian release): set base_path /var/spool/apt-mirror set mirror_path $base_path/mirror set skel_path $base_path/skel set var_path $base_path/var set cleanscript $var_path/clean.sh set defaultarch amd64 set nthreads 20 set _tilde 0 deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse clean http://archive.ubuntu.com/ubuntu clean http://security.ubuntu.com/ubuntu Tip: Adjust URLs and release names to match your desired mirror target. Step 3: Run the Mirror Sync Start the initial synchronization of packages. This may take several hours depending on your internet speed and selected repos: sudo apt-mirror Step 4: Serve the Mirror via Apache Configure Apache to serve the mirrored repository: sudo nano /etc/apache2/sites-available/apt-mirror.conf Add this configuration: &#60;VirtualHost *:80&#62; ServerAdmin admin@yourdomain.local DocumentRoot /var/spool/apt-mirror/mirror ServerName apt-mirror.local &#60;Directory /var/spool/apt-mirror/mirror&#62; Options Indexes FollowSymLinks AllowOverride None Require all granted &#60;/Directory&#62; ErrorLog ${APACHE_LOG_DIR}/apt-mirror_error.log CustomLog ${APACHE_LOG_DIR}/apt-mirror_access.log combined &#60;/VirtualHost&#62; Enable the new site and reload Apache: sudo a2ensite apt-mirror.conf sudo systemctl reload apache2 Step 5: Configure Client Machines On each client machine, edit /etc/apt/sources.list to point to your mirror server instead of the internet URLs: deb http://your-server-ip-or-hostname/ubuntu focal main restricted universe multiverse deb http://your-server-ip-or-hostname/ubuntu focal-updates main restricted universe multiverse deb http://your-server-ip-or-hostname/ubuntu focal-security main restricted universe multiverse Then update the package lists: sudo apt update Step 6: Automate Mirror Updates Set up a daily cron job to keep your mirror updated automatically: sudo crontab -e Add the following line to run apt-mirror every day at 3 AM: 0 3 * * * /usr/bin/apt-mirror > /var/log/apt-mirror.log 2>&#038;1 Troubleshooting &#38; Tips Ensure your firewall allows HTTP traffic (port 80) to the mirror server. Check Apache logs for access or permission issues in /var/log/apache2/. Adjust nthreads in mirror.list to optimize performance based on your hardware. Use sudo apt-mirror --help for advanced options. You can mirror additional repos or PPAs by adding lines to mirror.list]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container">
+  <style>
+    .mining-post-container {
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #080f19, #111d2f);
+      color: #e0f2ff;
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+      animation: fadeIn 1.8s ease-in-out;
+    }
+    .mining-post-container h2 {
+      font-size: 2.2rem;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff788;
+      margin-bottom: 25px;
+    }
+    .mining-post-container .excerpt {
+      background: linear-gradient(145deg, #0c1a26, #15293c);
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-style: italic;
+      color: #7fffd4;
+      text-shadow: 0 0 8px #00ffc2a8;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+      margin-bottom: 30px;
+    }
+    .mining-post-container h3 {
+      color: #00eaff;
+      font-size: 1.5rem;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #00d9ff99;
+    }
+    .mining-post-container p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin: 10px 0 20px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+    pre {
+      background-color: #0b0f14;
+      color: #1affff;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+      margin-top: 15px;
+    }
+    code {
+      color: #aaffee;
+      font-family: 'Fira Code', monospace;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #00fff7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <h2>Create a Local Mirror Repo Server to Speed Up Package Management</h2>
+  <div class="excerpt">
+    Managing multiple Linux systems often means downloading the same package updates repeatedly, wasting bandwidth and time. 
+    Setting up a local mirror repository centralizes downloads, accelerating installations across your network. 
+    This tutorial guides you through creating a local mirror server on Ubuntu/Debian using <code>apt-mirror</code> and Apache.
+  </div>
+
+  <h3>Why Create a Local Mirror?</h3>
+  <p>
+    A local mirror server caches packages from official repositories, so your client machines pull updates directly from it instead of repeatedly fetching from the internet.
+    This reduces bandwidth consumption, speeds up updates, and is perfect for environments like offices, labs, or mining farms with multiple Linux nodes.
+  </p>
+
+  <h3>Requirements</h3>
+  <ul>
+    <li>A Linux server (Ubuntu/Debian preferred) with 20+ GB of free disk space</li>
+    <li>Basic command-line proficiency</li>
+    <li>Root or sudo access on the server</li>
+    <li>Clients configured to use the mirror server for package updates</li>
+  </ul>
+
+  <h3>Step 1: Prepare Your Server</h3>
+  <p>Update the server and install required packages:</p>
+  <pre><code class="language-bash">sudo apt update && sudo apt upgrade -y
+sudo apt install apt-mirror apache2 -y
+  </code></pre>
+
+  <h3>Step 2: Configure <code>apt-mirror</code></h3>
+  <p>Edit the mirror configuration file to specify the repositories to mirror:</p>
+  <pre><code class="language-bash">sudo nano /etc/apt/mirror.list
+  </code></pre>
+  <p>Use a minimal configuration like this (replace &#8220;focal&#8221; with your Ubuntu/Debian release):</p>
+  <pre><code class="language-config">set base_path /var/spool/apt-mirror
+set mirror_path $base_path/mirror
+set skel_path $base_path/skel
+set var_path $base_path/var
+set cleanscript $var_path/clean.sh
+set defaultarch amd64
+set nthreads 20
+set _tilde 0
+
+deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu focal-updates main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu focal-security main restricted universe multiverse
+
+clean http://archive.ubuntu.com/ubuntu
+clean http://security.ubuntu.com/ubuntu
+  </code></pre>
+  <p><em>Tip:</em> Adjust URLs and release names to match your desired mirror target.</p>
+
+  <h3>Step 3: Run the Mirror Sync</h3>
+  <p>Start the initial synchronization of packages. This may take several hours depending on your internet speed and selected repos:</p>
+  <pre><code class="language-bash">sudo apt-mirror
+  </code></pre>
+
+  <h3>Step 4: Serve the Mirror via Apache</h3>
+  <p>Configure Apache to serve the mirrored repository:</p>
+  <pre><code class="language-bash">sudo nano /etc/apache2/sites-available/apt-mirror.conf
+  </code></pre>
+  <p>Add this configuration:</p>
+  <pre><code class="language-config">&lt;VirtualHost *:80&gt;
+    ServerAdmin admin@yourdomain.local
+    DocumentRoot /var/spool/apt-mirror/mirror
+    ServerName apt-mirror.local
+
+    &lt;Directory /var/spool/apt-mirror/mirror&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    &lt;/Directory&gt;
+
+    ErrorLog ${APACHE_LOG_DIR}/apt-mirror_error.log
+    CustomLog ${APACHE_LOG_DIR}/apt-mirror_access.log combined
+&lt;/VirtualHost&gt;
+  </code></pre>
+
+  <p>Enable the new site and reload Apache:</p>
+  <pre><code class="language-bash">sudo a2ensite apt-mirror.conf
+sudo systemctl reload apache2
+  </code></pre>
+
+  <h3>Step 5: Configure Client Machines</h3>
+  <p>On each client machine, edit <code>/etc/apt/sources.list</code> to point to your mirror server instead of the internet URLs:</p>
+  <pre><code class="language-bash">deb http://your-server-ip-or-hostname/ubuntu focal main restricted universe multiverse
+deb http://your-server-ip-or-hostname/ubuntu focal-updates main restricted universe multiverse
+deb http://your-server-ip-or-hostname/ubuntu focal-security main restricted universe multiverse
+  </code></pre>
+  <p>Then update the package lists:</p>
+  <pre><code class="language-bash">sudo apt update
+  </code></pre>
+
+  <h3>Step 6: Automate Mirror Updates</h3>
+  <p>Set up a daily cron job to keep your mirror updated automatically:</p>
+  <pre><code class="language-bash">sudo crontab -e
+  </code></pre>
+  <p>Add the following line to run <code>apt-mirror</code> every day at 3 AM:</p>
+  <pre><code class="language-cron">0 3 * * * /usr/bin/apt-mirror > /var/log/apt-mirror.log 2>&1
+  </code></pre>
+
+  <h3>Troubleshooting &amp; Tips</h3>
+  <ul>
+    <li>Ensure your firewall allows HTTP traffic (port 80) to the mirror server.</li>
+    <li>Check Apache logs for access or permission issues in <code>/var/log/apache2/</code>.</li>
+    <li>Adjust <code>nthreads</code> in <code>mirror.list</code> to optimize performance based on your hardware.</li>
+    <li>Use <code>sudo apt-mirror --help</code> for advanced options.</li>
+    <li>You can mirror additional repos or PPAs by adding lines to <code>mirror.list
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=572</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>“What Is Crypto Mining? &#124; Your Ultimate Beginner Guide to Mining &#038; Choosing the Right Coin”</title>
+		<link>http://192.168.1.108/?p=569</link>
+					<comments>http://192.168.1.108/?p=569#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2025 11:43:41 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<category><![CDATA[Mining Automation]]></category>
+		<category><![CDATA[Performance Tuning]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=569</guid>
+
+					<description><![CDATA[💻 Crypto Mining 101 + XMR vs RTM Deep Dive (2025 Edition) Ever wondered how crypto mining actually works, or which coin is best for your CPU rig? This unified guide breaks it down step-by-step—from beginner basics to an in-depth comparison of Monero (XMR) and Raptoreum (RTM). 🔍 What is Mining? Crypto mining is how decentralized coins are minted and secured. Miners validate transactions by solving mathematical puzzles using computing power. In return, they’re rewarded with crypto. ⚙️ How It Works 🧱 Transactions are grouped into blocks. ⚙️ Miners solve complex puzzles to validate the block. ✅ The first miner to solve it adds the block to the chain. 💸 They earn coins + transaction fees. 🧠 Types of Mining Hardware CPU: Best for XMR, RTM. Low power, low cost. GPU: Great for coins like RVN, ETHW. ASIC: Ultra-fast but costly and noisy. Best for BTC, LTC. FPGA: Rare, customizable, power-efficient. 💡 What to Consider Before Mining 🔌 Electricity Cost: Cheap or free power makes a difference. 🖥️ Your Hardware: Old laptop? Server? Mini PC? 🕵️‍♂️ Your Goals: Profit, privacy, or passive earning? 🌐 Network Difficulty: Is it beginner-friendly or competitive? 💸 Rewards: Pool or solo? Auto payout or wallet-based? 🔥 XMR vs RTM – Which Should You Mine? Comparing Monero and Raptoreum reveals key differences in privacy, power usage, setup, and rewards. 📜 Algorithm &#038; Use Case XMR: Uses RandomX, optimized for CPUs. High privacy, ASIC-resistant. RTM: Uses GhostRider, a hybrid algorithm that randomly mixes hash functions. Lighter on power, flexible. 💰 Profitability &#038; Difficulty XMR has strong price stability and global demand—but it’s competitive. RTM offers higher yields per hash on average due to lower network difficulty. ⚙️ Sample Configurations Example XMRig config for XMR: { "algo": "rx/0", "pools": [{ "url": "pool.supportxmr.com:3333", "user": "YOUR_XMR_WALLET", "pass": "x" }] } RTM using cpuminer-opt (GhostRider algo): ./cpuminer --algo ghostrider -o stratum+tcp://stratum.rplant.xyz:17022 -u YOUR_RTM_WALLET 🔐 Privacy &#038; Purpose XMR: A true privacy coin. Untraceable transactions, strong community. RTM: Focuses on utility—supports nodes, dApps, and digital assets. 🔧 Use Case Scenarios Private Browsing &#038; Payments: XMR is ideal. Passive Income on Old PCs: RTM wins here. Multi-coin Efficiency: Use both on hybrid rigs. 🚀 Bonus Tip: Multi-Coin CPU Mining Divide your CPU threads to run both XMR and RTM miners in parallel. Optimize based on temperature and hashrate. For full tutorial, check out our Multi-Coin Rig Guide. ✅ Final Thoughts Don’t just mine what’s trending. Mine what aligns with your values and resources. Whether you prefer XMR’s rock-solid privacy or RTM’s utility and potential, both are excellent choices for low-power mining in 2025.]]></description>
+										<content:encoded><![CDATA[<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><br />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script></p>
+<style>
+.mining-post-container {
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(135deg, #0a111d, #141f30);
+  color: #e0f7ff;
+  border-radius: 20px;
+  padding: 35px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 30px rgba(0, 255, 200, 0.12);
+  animation: fadeIn 1.8s ease-in-out;
+}
+.mining-post-container h1, 
+.mining-post-container h2 {
+  font-size: 2.2rem;
+  color: #00fff7;
+  text-shadow: 0 0 10px #00fff788;
+  margin-bottom: 25px;
+}
+.mining-post-container h3 {
+  color: #00eaff;
+  font-size: 1.5rem;
+  margin-top: 30px;
+  text-shadow: 0 0 8px #00d9ff99;
+}
+.mining-post-container p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 10px 0 20px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+.mining-post-container ul {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 15px 25px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+.mining-post-container li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+pre[class*="language-"] {
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .mining-post-container { width: 90%; padding: 20px; }
+}
+</style>
+<div class="mining-post-container">
+<h1><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4bb.png" alt="💻" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Crypto Mining 101 + XMR vs RTM Deep Dive (2025 Edition)</h1>
+<p><strong>Ever wondered how crypto mining actually works, or which coin is best for your CPU rig?</strong> This unified guide breaks it down step-by-step—from beginner basics to an in-depth comparison of Monero (XMR) and Raptoreum (RTM).</p>
+<h2><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f50d.png" alt="🔍" class="wp-smiley" style="height: 1em; max-height: 1em;" /> What is Mining?</h2>
+<p>Crypto mining is how decentralized coins are minted and secured. Miners validate transactions by solving mathematical puzzles using computing power. In return, they’re rewarded with crypto.</p>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2699.png" alt="⚙" class="wp-smiley" style="height: 1em; max-height: 1em;" /> How It Works</h3>
+<ul>
+<li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9f1.png" alt="🧱" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Transactions are grouped into blocks.</li>
+<li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2699.png" alt="⚙" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Miners solve complex puzzles to validate the block.</li>
+<li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2705.png" alt="✅" class="wp-smiley" style="height: 1em; max-height: 1em;" /> The first miner to solve it adds the block to the chain.</li>
+<li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4b8.png" alt="💸" class="wp-smiley" style="height: 1em; max-height: 1em;" /> They earn coins + transaction fees.</li>
+</ul>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Types of Mining Hardware</h3>
+<ul>
+<li><strong>CPU:</strong> Best for XMR, RTM. Low power, low cost.</li>
+<li><strong>GPU:</strong> Great for coins like RVN, ETHW.</li>
+<li><strong>ASIC:</strong> Ultra-fast but costly and noisy. Best for BTC, LTC.</li>
+<li><strong>FPGA:</strong> Rare, customizable, power-efficient.</li>
+</ul>
+<h2><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4a1.png" alt="💡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> What to Consider Before Mining</h2>
+<ul>
+<li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f50c.png" alt="🔌" class="wp-smiley" style="height: 1em; max-height: 1em;" /> <strong>Electricity Cost:</strong> Cheap or free power makes a difference.</li>
+<li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f5a5.png" alt="🖥" class="wp-smiley" style="height: 1em; max-height: 1em;" /> <strong>Your Hardware:</strong> Old laptop? Server? Mini PC?</li>
+<li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f575-fe0f-200d-2642-fe0f.png" alt="🕵️‍♂️" class="wp-smiley" style="height: 1em; max-height: 1em;" /> <strong>Your Goals:</strong> Profit, privacy, or passive earning?</li>
+<li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f310.png" alt="🌐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> <strong>Network Difficulty:</strong> Is it beginner-friendly or competitive?</li>
+<li><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4b8.png" alt="💸" class="wp-smiley" style="height: 1em; max-height: 1em;" /> <strong>Rewards:</strong> Pool or solo? Auto payout or wallet-based?</li>
+</ul>
+<h2><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f525.png" alt="🔥" class="wp-smiley" style="height: 1em; max-height: 1em;" /> XMR vs RTM – Which Should You Mine?</h2>
+<div class="excerpt">
+    Comparing Monero and Raptoreum reveals key differences in privacy, power usage, setup, and rewards.
+  </div>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4dc.png" alt="📜" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Algorithm &#038; Use Case</h3>
+<p>
+    <strong>XMR:</strong> Uses <code>RandomX</code>, optimized for CPUs. High privacy, ASIC-resistant.<br />
+    <strong>RTM:</strong> Uses <code>GhostRider</code>, a hybrid algorithm that randomly mixes hash functions. Lighter on power, flexible.
+  </p>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4b0.png" alt="💰" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Profitability &#038; Difficulty</h3>
+<p>
+    XMR has strong price stability and global demand—but it’s competitive.<br />
+    RTM offers higher yields per hash on average due to lower network difficulty.
+  </p>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2699.png" alt="⚙" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Sample Configurations</h3>
+<p>Example XMRig config for XMR:</p>
+<pre><code class="language-json">{
+  "algo": "rx/0",
+  "pools": [{
+    "url": "pool.supportxmr.com:3333",
+    "user": "YOUR_XMR_WALLET",
+    "pass": "x"
+  }]
+}</code></pre>
+<p>RTM using cpuminer-opt (GhostRider algo):</p>
+<pre><code class="language-bash">./cpuminer --algo ghostrider -o stratum+tcp://stratum.rplant.xyz:17022 -u YOUR_RTM_WALLET</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f510.png" alt="🔐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Privacy &#038; Purpose</h3>
+<p>
+    <strong>XMR:</strong> A true privacy coin. Untraceable transactions, strong community.<br />
+    <strong>RTM:</strong> Focuses on utility—supports nodes, dApps, and digital assets.
+  </p>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f527.png" alt="🔧" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Use Case Scenarios</h3>
+<ul>
+<li><strong>Private Browsing &#038; Payments:</strong> XMR is ideal.</li>
+<li><strong>Passive Income on Old PCs:</strong> RTM wins here.</li>
+<li><strong>Multi-coin Efficiency:</strong> Use both on hybrid rigs.</li>
+</ul>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Bonus Tip: Multi-Coin CPU Mining</h3>
+<p>Divide your CPU threads to run both XMR and RTM miners in parallel. Optimize based on temperature and hashrate. For full tutorial, check out our <a href="/guides/multi-coin-rig.html">Multi-Coin Rig Guide</a>.</p>
+<h2><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2705.png" alt="✅" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Final Thoughts</h2>
+<p>Don’t just mine what’s trending. Mine what aligns with your values and resources. Whether you prefer XMR’s rock-solid privacy or RTM’s utility and potential, both are excellent choices for low-power mining in 2025.</p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=569</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>&#8220;Mastering Multi-Coin Mining: A Steb-by-Step XMRig, RTM, and VerusHash Tutorial&#8221;</title>
+		<link>http://192.168.1.108/?p=530</link>
+					<comments>http://192.168.1.108/?p=530#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sun, 01 Jun 2025 15:35:10 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<category><![CDATA[Mining Automation]]></category>
+		<category><![CDATA[Performance Tuning]]></category>
+		<category><![CDATA[Tools & Scripts]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=530</guid>
+
+					<description><![CDATA[Tutorial: Build a Multi-Coin Mining Rig with XMRig, RTM, and VerusHash Ready to mine XMR (RandomX), RTM (GhostRider), and Verus (VerusHash)? This step-by-step tutorial equips you with tools, scripts, and automation to set up and optimize a multi-coin mining rig on Linux. 🛠 Step 1: Gather Essential Mining Tools First, install the core tools for mining: XMRig for Monero (XMR): https://xmrig.com RTM Core Wallet: https://rtmcoin.pro Verus Desktop: https://verus.io Install dependencies: sudo apt install build-essential cmake htop 📥 Step 2: Install and Configure XMRig (RandomX) Download and extract XMRig: wget https://github.com/xmrig/xmrig/releases/download/v6.21.0/xmrig-6.21.0-linux-x64.tar.gz tar -xvf xmrig-6.21.0-linux-x64.tar.gz cd xmrig-6.21.0 Create a config.json: { "pools": [ { "url": "pool.supportxmr.com:5555", "user": "YOUR_XMR_ADDRESS", "pass": "x", "keepalive": true, "tls": false } ], "cpu": { "enabled": true, "huge-pages": true, "threads": 2, "priority": 1 }, "log-file": "xmrig.log", "verbose": 2 } Start mining: ./xmrig --config=config.json 💻 Step 3: Set Up RTM with GhostRider wget https://rtmcoin.pro/downloads/rtm-core-latest-linux.tar.gz tar -xvf rtm-core-latest-linux.tar.gz cd rtm-core ./rtm-core-install.sh Edit ~/.rtm/rtm.conf: rpcuser=youruser rpcpassword=yourpass rpcallowip=127.0.0.1 rpcport=8332 server=1 Create start-rtm.sh: #!/bin/bash RTM_DIR="/path/to/rtm-core" LOG="rtm-mining-$(date +%F).log" cd $RTM_DIR &#124;&#124; exit echo "[*] Starting RTM mining..." &#124; tee $LOG ./rtm-cli -rpcuser=youruser -rpcpassword=yourpass startmining &#038; 🔧 Step 4: VerusHash Mining (Verus) Build Verus miner: git clone https://github.com/VerusCoin/nheqminer.git cd nheqminer mkdir build &#038;& cd build cmake .. make -j$(nproc) Create tune-verus.sh: #!/bin/bash echo "[*] Tuning VerusHash performance..." sysctl -w vm.nr_hugepages=128 echo performance &#124; tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ./nheqminer -l vrsc.miner.rocks:3333 -u YOUR_VRSC_ADDRESS -p x &#038; echo "[+] VerusHash optimized and running" 🤖 Step 5: Master Script: mine-all.sh #!/bin/bash echo "[*] Starting all miners..." cd /path/to/xmrig &#038;& ./xmrig --config=config.json &#038; cd /path/to/rtm-core &#038;& ./start-rtm.sh &#038; cd /path/to/nheqminer/build &#038;& ./tune-verus.sh &#038; echo "[+] All mining processes started" Schedule mining on boot: @reboot /path/to/mine-all.sh 📊 Step 6: Monitor Hashrate Create monitor-hash.sh: #!/bin/bash LOG="hashrate-$(date +%F).log" echo "[*] Checking hashrates..." &#124; tee $LOG grep "speed" /path/to/xmrig/xmrig.log &#124; tail -1 &#124; tee -a $LOG curl -s http://127.0.0.1:8332 -u youruser:yourpass -d '{"method":"getmininginfo"}' &#124; tee -a $LOG pidof nheqminer &#038;& echo "VerusHash running" &#124;&#124; echo "VerusHash stopped" &#124; tee -a $LOG 🔍 Step 7: Troubleshoot Low Hashrate: Enable hugepages &#038; check CPU governor Pool Errors: Validate pool config &#038; TLS settings High Temps: Reduce threads or CPU intensity 🌟 Step 8: Scale + Share Add failover pools in config.json, tweak thread counts, and share your scripts on Miner Hub&#8217;s X!]]></description>
+										<content:encoded><![CDATA[<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><br />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script></p>
+<style>
+.mining-post-container {
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(135deg, #0a111d, #141f30);
+  color: #e0f7ff;
+  border-radius: 20px;
+  padding: 35px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 30px rgba(0, 255, 200, 0.12);
+  animation: fadeIn 1.8s ease-in-out;
+}
+.mining-post-container h2 {
+  font-size: 2.2rem;
+  color: #00fff7;
+  text-shadow: 0 0 10px #00fff788;
+  margin-bottom: 25px;
+}
+.mining-post-container .excerpt {
+  background: linear-gradient(145deg, #0e1c2a, #162c3f);
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-style: italic;
+  color: #7fffd4;
+  text-shadow: 0 0 8px #00ffc2a8;
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+  margin-bottom: 30px;
+}
+.mining-post-container h3 {
+  color: #00eaff;
+  font-size: 1.5rem;
+  margin-top: 30px;
+  text-shadow: 0 0 8px #00d9ff99;
+}
+.mining-post-container p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 10px 0 20px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+pre[class*="language-"] {
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .mining-post-container { width: 90%; padding: 20px; }
+}
+</style>
+<div class="mining-post-container">
+<h2>Tutorial: Build a Multi-Coin Mining Rig with XMRig, RTM, and VerusHash</h2>
+<div class="excerpt">
+    Ready to mine XMR (RandomX), RTM (GhostRider), and Verus (VerusHash)? This step-by-step tutorial equips you with tools, scripts, and automation to set up and optimize a multi-coin mining rig on Linux.
+  </div>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f6e0.png" alt="🛠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 1: Gather Essential Mining Tools</h3>
+<p>
+    First, install the core tools for mining:</p>
+<ul>
+<li>XMRig for Monero (XMR): <code>https://xmrig.com</code></li>
+<li>RTM Core Wallet: <code>https://rtmcoin.pro</code></li>
+<li>Verus Desktop: <code>https://verus.io</code></li>
+</ul>
+<p>    Install dependencies:
+  </p>
+<pre><code class="language-bash">sudo apt install build-essential cmake htop</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e5.png" alt="📥" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 2: Install and Configure XMRig (RandomX)</h3>
+<p>Download and extract XMRig:</p>
+<pre><code class="language-bash">
+wget https://github.com/xmrig/xmrig/releases/download/v6.21.0/xmrig-6.21.0-linux-x64.tar.gz
+tar -xvf xmrig-6.21.0-linux-x64.tar.gz
+cd xmrig-6.21.0
+</code></pre>
+<p>Create a <code>config.json</code>:</p>
+<pre><code class="language-json">{
+  "pools": [
+    {
+      "url": "pool.supportxmr.com:5555",
+      "user": "YOUR_XMR_ADDRESS",
+      "pass": "x",
+      "keepalive": true,
+      "tls": false
+    }
+  ],
+  "cpu": {
+    "enabled": true,
+    "huge-pages": true,
+    "threads": 2,
+    "priority": 1
+  },
+  "log-file": "xmrig.log",
+  "verbose": 2
+}</code></pre>
+<p>Start mining:</p>
+<pre><code class="language-bash">./xmrig --config=config.json</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4bb.png" alt="💻" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 3: Set Up RTM with GhostRider</h3>
+<pre><code class="language-bash">
+wget https://rtmcoin.pro/downloads/rtm-core-latest-linux.tar.gz
+tar -xvf rtm-core-latest-linux.tar.gz
+cd rtm-core
+./rtm-core-install.sh
+</code></pre>
+<p>Edit <code>~/.rtm/rtm.conf</code>:</p>
+<pre><code class="language-properties">
+rpcuser=youruser
+rpcpassword=yourpass
+rpcallowip=127.0.0.1
+rpcport=8332
+server=1
+</code></pre>
+<p>Create <code>start-rtm.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+RTM_DIR="/path/to/rtm-core"
+LOG="rtm-mining-$(date +%F).log"
+
+cd $RTM_DIR || exit
+echo "[*] Starting RTM mining..." | tee $LOG
+./rtm-cli -rpcuser=youruser -rpcpassword=yourpass startmining &</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f527.png" alt="🔧" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 4: VerusHash Mining (Verus)</h3>
+<p>Build Verus miner:</p>
+<pre><code class="language-bash">
+git clone https://github.com/VerusCoin/nheqminer.git
+cd nheqminer
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+</code></pre>
+<p>Create <code>tune-verus.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+echo "[*] Tuning VerusHash performance..."
+sysctl -w vm.nr_hugepages=128
+echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+./nheqminer -l vrsc.miner.rocks:3333 -u YOUR_VRSC_ADDRESS -p x &
+echo "[+] VerusHash optimized and running"
+</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f916.png" alt="🤖" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 5: Master Script: <code>mine-all.sh</code></h3>
+<pre><code class="language-bash">#!/bin/bash
+echo "[*] Starting all miners..."
+cd /path/to/xmrig && ./xmrig --config=config.json &
+cd /path/to/rtm-core && ./start-rtm.sh &
+cd /path/to/nheqminer/build && ./tune-verus.sh &
+echo "[+] All mining processes started"
+</code></pre>
+<p>Schedule mining on boot:</p>
+<pre><code class="language-bash">@reboot /path/to/mine-all.sh</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ca.png" alt="📊" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 6: Monitor Hashrate</h3>
+<p>Create <code>monitor-hash.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+LOG="hashrate-$(date +%F).log"
+echo "[*] Checking hashrates..." | tee $LOG
+grep "speed" /path/to/xmrig/xmrig.log | tail -1 | tee -a $LOG
+curl -s http://127.0.0.1:8332 -u youruser:yourpass -d '{"method":"getmininginfo"}' | tee -a $LOG
+pidof nheqminer && echo "VerusHash running" || echo "VerusHash stopped" | tee -a $LOG
+</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f50d.png" alt="🔍" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 7: Troubleshoot</h3>
+<ul>
+<li><strong>Low Hashrate:</strong> Enable hugepages &#038; check CPU governor</li>
+<li><strong>Pool Errors:</strong> Validate pool config &#038; TLS settings</li>
+<li><strong>High Temps:</strong> Reduce threads or CPU intensity</li>
+</ul>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f31f.png" alt="🌟" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 8: Scale + Share</h3>
+<p>Add failover pools in <code>config.json</code>, tweak thread counts, and share your scripts on Miner Hub&#8217;s X!</p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=530</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>🔐 &#8220;Terminal Tripwire: Build a Real-Time Intrusion Alert System on Linux (DIY SIEM Lite)&#8221;</title>
+		<link>http://192.168.1.108/?p=528</link>
+					<comments>http://192.168.1.108/?p=528#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sun, 01 Jun 2025 15:05:18 +0000</pubDate>
+				<category><![CDATA[Security & Hacking]]></category>
+		<category><![CDATA[Tools & Scripts]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=528</guid>
+
+					<description><![CDATA[🔐 Terminal Tripwire: Build a Real-Time Intrusion Alert System on Linux (DIY SIEM Lite) Turn your Linux terminal into a security sensor. In this guide, you&#8217;ll build a lightweight intrusion detection system using bash, inotify, and Telegram — no bloated software, no excuses. 👀 Introduction Not all threats need enterprise tools to detect. With a few native Linux utilities, you can monitor your system for suspicious activity and receive **real-time alerts** straight to your device. Think of it as a custom-built, hacker-grade tripwire system — perfect for servers, home labs, and mining rigs. 🔧 What You&#8217;ll Build A bash-based watcher that: Monitors sensitive directories for file events (create, delete, access) Watches for login failures and suspicious auth logs Notifies you instantly via Telegram 🛠️ Requirements - A Debian/Ubuntu Linux machine - Root/sudo access - Telegram account - curl, inotify-tools 🚀 Step 1: Install Required Tools Install the `inotify-tools` package to monitor filesystem changes. sudo apt update sudo apt install inotify-tools curl 📦 Step 2: Create a Telegram Bot Open Telegram and search for @BotFather Run /newbot and follow instructions Save the generated bot token Next, get your personal chat ID (or a group ID if you’re monitoring with a team): curl -s https://api.telegram.org/bot&#60;your_token&#62;/getUpdates Send a test message to the bot and check the response for your chat ID. ⚠️ Step 3: Create Your Alert Script Save this as /opt/defense/send_alert.sh and make it executable: #!/bin/bash TOKEN="your_bot_token" CHAT_ID="your_chat_id" MESSAGE="$1" curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="$MESSAGE" chmod +x /opt/defense/send_alert.sh 📡 Step 4: Monitor Sensitive Folders Create a watcher script: #!/bin/bash WATCHDIR="/etc" inotifywait -m -e access,create,delete $WATCHDIR &#124; while read line do /opt/defense/send_alert.sh "🚨 Activity detected in $WATCHDIR: $line" done Make it executable and test it by creating or reading files in /etc: touch /etc/testfile cat /etc/passwd 🔐 Step 5: Monitor SSH Brute Force Attempts tail -Fn0 /var/log/auth.log &#124; \ while read line ; do echo "$line" &#124; grep "Failed password" &#62;/dev/null if [ $? = 0 ]; then /opt/defense/send_alert.sh "🔐 SSH Alert: $line" fi done 🧠 Bonus: Add Persistence with Cron Add the watchers to cron so they restart on reboot: @reboot /opt/defense/folder_watch.sh &#38; @reboot /opt/defense/ssh_watch.sh &#38; ✅ Final Thoughts This is not a replacement for full-blown SIEMs or firewalls — it&#8217;s a rapid-response terminal toolkit that gives you visibility and control. Pair it with fail2ban, proper firewalling, and rootkit scanning for a layered defense. Got a mining rig, web server, or homelab? Don&#8217;t leave it blind — **build your terminal tripwire today.**]]></description>
+										<content:encoded><![CDATA[ <div class="mining-post-container"><style> .mining-post-container { font-family: 'Share Tech Mono', monospace; background: linear-gradient(135deg, #0a111d, #141f30); color: #e0f7ff; border-radius: 20px; padding: 35px; margin-bottom: 40px; box-shadow: 0 0 30px rgba(0, 255, 200, 0.12); animation: fadeIn 1.8s ease-in-out; }
+.mining-post-container h2 {
+font-size: 2.2rem;
+color: #00fff7;
+text-shadow: 0 0 10px #00fff788;
+margin-bottom: 25px;
+}
+
+.mining-post-container .excerpt {
+background: linear-gradient(145deg, #0e1c2a, #162c3f);
+padding: 15px 20px;
+border-radius: 12px;
+font-style: italic;
+color: #7fffd4;
+text-shadow: 0 0 8px #00ffc2a8;
+box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+margin-bottom: 30px;
+}
+
+.mining-post-container h3 {
+color: #00eaff;
+font-size: 1.5rem;
+margin-top: 30px;
+text-shadow: 0 0 8px #00d9ff99;
+}
+
+.mining-post-container p {
+line-height: 1.7;
+font-size: 1.1rem;
+margin: 10px 0 20px;
+background: rgba(0, 0, 0, 0.35);
+padding: 12px 18px;
+border-radius: 10px;
+}
+
+pre {
+background-color: #0b0f14;
+color: #1affff;
+padding: 20px;
+border-radius: 12px;
+overflow-x: auto;
+box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+margin-top: 15px;
+}
+
+code {
+color: #aaffee;
+font-family: 'Fira Code', monospace;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<h2><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f510.png" alt="🔐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Terminal Tripwire: Build a Real-Time Intrusion Alert System on Linux (DIY SIEM Lite)</h2> <div class="excerpt">Turn your Linux terminal into a security sensor. In this guide, you&#8217;ll build a lightweight intrusion detection system using bash, inotify, and Telegram — no bloated software, no excuses.</div> <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f440.png" alt="👀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Introduction</h3> <p>Not all threats need enterprise tools to detect. With a few native Linux utilities, you can monitor your system for suspicious activity and receive **real-time alerts** straight to your device. Think of it as a custom-built, hacker-grade tripwire system — perfect for servers, home labs, and mining rigs.</p> <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f527.png" alt="🔧" class="wp-smiley" style="height: 1em; max-height: 1em;" /> What You&#8217;ll Build</h3> <p> A bash-based watcher that: <ul> <li>Monitors sensitive directories for file events (create, delete, access)</li> <li>Watches for login failures and suspicious auth logs</li> <li>Notifies you instantly via Telegram</li> </ul> </p> <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f6e0.png" alt="🛠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Requirements</h3> <pre><code>- A Debian/Ubuntu Linux machine - Root/sudo access - Telegram account - curl, inotify-tools</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 1: Install Required Tools</h3> <p>Install the `inotify-tools` package to monitor filesystem changes.</p> <pre><code>sudo apt update sudo apt install inotify-tools curl</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e6.png" alt="📦" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 2: Create a Telegram Bot</h3> <ol> <li>Open Telegram and search for <code>@BotFather</code></li> <li>Run <code>/newbot</code> and follow instructions</li> <li>Save the generated <strong>bot token</strong></li> </ol> <p>Next, get your personal chat ID (or a group ID if you’re monitoring with a team):</p> <pre><code>curl -s https://api.telegram.org/bot&lt;your_token&gt;/getUpdates</code></pre> <p>Send a test message to the bot and check the response for your chat ID.</p>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/26a0.png" alt="⚠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 3: Create Your Alert Script</h3> <p>Save this as <code>/opt/defense/send_alert.sh</code> and make it executable:</p> <pre><code>#!/bin/bash TOKEN="your_bot_token" CHAT_ID="your_chat_id" MESSAGE="$1"
+curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage
+-d chat_id=$CHAT_ID -d text="$MESSAGE"</code></pre>
+
+<pre><code>chmod +x /opt/defense/send_alert.sh</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e1.png" alt="📡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 4: Monitor Sensitive Folders</h3> <p>Create a watcher script:</p> <pre><code>#!/bin/bash WATCHDIR="/etc" inotifywait -m -e access,create,delete $WATCHDIR | while read line do /opt/defense/send_alert.sh "&#x1f6a8; Activity detected in $WATCHDIR: $line" done</code></pre> <p>Make it executable and test it by creating or reading files in /etc:</p> <pre><code>touch /etc/testfile cat /etc/passwd</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f510.png" alt="🔐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 5: Monitor SSH Brute Force Attempts</h3> <pre><code>tail -Fn0 /var/log/auth.log | \ while read line ; do echo "$line" | grep "Failed password" &gt;/dev/null if [ $? = 0 ]; then /opt/defense/send_alert.sh "&#x1f510; SSH Alert: $line" fi done</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Bonus: Add Persistence with Cron</h3> <p>Add the watchers to cron so they restart on reboot:</p> <pre><code>@reboot /opt/defense/folder_watch.sh &amp; @reboot /opt/defense/ssh_watch.sh &amp;</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2705.png" alt="✅" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Final Thoughts</h3> <p>This is not a replacement for full-blown SIEMs or firewalls — it&#8217;s a rapid-response terminal toolkit that gives you visibility and control. Pair it with fail2ban, proper firewalling, and rootkit scanning for a layered defense.</p> <p>Got a mining rig, web server, or homelab? Don&#8217;t leave it blind — **build your terminal tripwire today.**</p> </div> ]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=528</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Defense by Design: Recon, Harden, and Automate with Tactical Shell Scripts</title>
+		<link>http://192.168.1.108/?p=340</link>
+					<comments>http://192.168.1.108/?p=340#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sun, 25 May 2025 15:55:20 +0000</pubDate>
+				<category><![CDATA[Security & Hacking]]></category>
+		<category><![CDATA[Tools & Scripts]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=340</guid>
+
+					<description><![CDATA[Defense by Design: Recon, Harden, and Automate with Tactical Shell Scripts Step beyond the basics. This guide reveals how ethical hackers can create proactive, self-healing defenses using advanced recon and automation scripts — all from your terminal. 📡 Network Recon &#038; Auto-Mapping Map out your LAN, identify rogue devices, and store logs automatically with this Bash + Nmap combo: #!/bin/bash subnet="192.168.1.0/24" log="lan-scan-$(date +%F).log" echo "[*] Scanning LAN..." &#124; tee $log nmap -sn $subnet &#124; tee -a $log echo "[+] Devices logged to $log" This gives you daily visibility into what&#8217;s live. Hook it to a cron job and sleep easy. 🛡 Auto-Hardening Linux: Defense via Script Automate firewall, SSH, and root login protection in one swoop: #!/bin/bash echo "[*] Hardening firewall..." ufw default deny incoming ufw default allow outgoing ufw allow ssh ufw enable echo "[*] Disabling root SSH login..." sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config systemctl restart sshd echo "[*] Installing fail2ban..." apt install -y fail2ban systemctl enable fail2ban systemctl start fail2ban One command, and your server’s shielded. Pair this with monitoring tools for full defense cycles. 🎯 Auto-Ban Suspicious Traffic Let logs tell you when to strike — here’s a live-monitor that scans for brute-force attempts: #!/bin/bash tail -F /var/log/auth.log &#124; while read line; do echo "$line" &#124; grep "Failed password" &#038;>/dev/null if [ $? -eq 0 ]; then ip=$(echo "$line" &#124; awk '{print $(NF-3)}') echo "[!] Detected brute force from $ip" ufw deny from $ip fi done Turn log lines into real-time triggers. Fully customizable for any log pattern or service. 🔁 Schedule, Repeat, Defend Use `cron` to automate these at boot or regular intervals. For example: # Daily recon at 7 AM 0 7 * * * /opt/scripts/lan-recon.sh # Auto-hardening on reboot @reboot /opt/scripts/harden.sh Your system becomes a living fortress — updating, logging, and fighting threats while you sleep. ⚔️ Bring it All Together Combine these into a suite and version it with Git. Share improvements, integrate with your XMR/RTM mining scripts, or build a remote command dashboard. 💬 Stay Sharp, Stay Secure Got ideas for advanced traps, honeypots, or alert systems? Share them. Let&#8217;s evolve the defense layer together — script by script, signal by signal.]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container"><style>
+  .mining-post-container {
+    font-family: 'Share Tech Mono', monospace;
+    background: linear-gradient(135deg, #0a111d, #141f30);
+    color: #e0f7ff;
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 30px rgba(0, 255, 200, 0.12);
+    animation: fadeIn 1.8s ease-in-out;
+  }
+
+  .mining-post-container h2 {
+    font-size: 2.2rem;
+    color: #00fff7;
+    text-shadow: 0 0 10px #00fff788;
+    margin-bottom: 25px;
+  }
+
+  .mining-post-container .excerpt {
+    background: linear-gradient(145deg, #0e1c2a, #162c3f);
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-style: italic;
+    color: #7fffd4;
+    text-shadow: 0 0 8px #00ffc2a8;
+    box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+    margin-bottom: 30px;
+  }
+
+  .mining-post-container h3 {
+    color: #00eaff;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    text-shadow: 0 0 8px #00d9ff99;
+  }
+
+  .mining-post-container p {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin: 10px 0 20px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 12px 18px;
+    border-radius: 10px;
+  }
+
+  pre {
+    background-color: #0b0f14;
+    color: #1affff;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+    margin-top: 15px;
+  }
+
+  code {
+    color: #aaffee;
+    font-family: 'Fira Code', monospace;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<h2>Defense by Design: Recon, Harden, and Automate with Tactical Shell Scripts</h2>
+<div class="excerpt">Step beyond the basics. This guide reveals how ethical hackers can create proactive, self-healing defenses using advanced recon and automation scripts — all from your terminal.</div>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e1.png" alt="📡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Network Recon &#038; Auto-Mapping</h3>
+<p>Map out your LAN, identify rogue devices, and store logs automatically with this Bash + Nmap combo:</p>
+<pre><code>
+#!/bin/bash
+subnet="192.168.1.0/24"
+log="lan-scan-$(date +%F).log"
+echo "[*] Scanning LAN..." | tee $log
+nmap -sn $subnet | tee -a $log
+echo "[+] Devices logged to $log"
+</code></pre>
+<p>This gives you daily visibility into what&#8217;s live. Hook it to a cron job and sleep easy.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f6e1.png" alt="🛡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Auto-Hardening Linux: Defense via Script</h3>
+<p>Automate firewall, SSH, and root login protection in one swoop:</p>
+<pre><code>
+#!/bin/bash
+echo "[*] Hardening firewall..."
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow ssh
+ufw enable
+
+echo "[*] Disabling root SSH login..."
+sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
+systemctl restart sshd
+
+echo "[*] Installing fail2ban..."
+apt install -y fail2ban
+systemctl enable fail2ban
+systemctl start fail2ban
+</code></pre>
+<p>One command, and your server’s shielded. Pair this with monitoring tools for full defense cycles.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f3af.png" alt="🎯" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Auto-Ban Suspicious Traffic</h3>
+<p>Let logs tell you when to strike — here’s a live-monitor that scans for brute-force attempts:</p>
+<pre><code>
+#!/bin/bash
+tail -F /var/log/auth.log | while read line; do
+  echo "$line" | grep "Failed password" &>/dev/null
+  if [ $? -eq 0 ]; then
+    ip=$(echo "$line" | awk '{print $(NF-3)}')
+    echo "[!] Detected brute force from $ip"
+    ufw deny from $ip
+  fi
+done
+</code></pre>
+<p>Turn log lines into real-time triggers. Fully customizable for any log pattern or service.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f501.png" alt="🔁" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Schedule, Repeat, Defend</h3>
+<p>Use `cron` to automate these at boot or regular intervals. For example:</p>
+<pre><code>
+# Daily recon at 7 AM
+0 7 * * * /opt/scripts/lan-recon.sh
+
+# Auto-hardening on reboot
+@reboot /opt/scripts/harden.sh
+</code></pre>
+<p>Your system becomes a living fortress — updating, logging, and fighting threats while you sleep.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2694.png" alt="⚔" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Bring it All Together</h3>
+<p>Combine these into a suite and version it with Git. Share improvements, integrate with your XMR/RTM mining scripts, or build a remote command dashboard.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ac.png" alt="💬" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Stay Sharp, Stay Secure</h3>
+<p>Got ideas for advanced traps, honeypots, or alert systems? Share them. Let&#8217;s evolve the defense layer together — script by script, signal by signal.</p>
+</div>
+
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=340</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>🚀 Getting Started with RandomX Mining for Monero (XMR)</title>
+		<link>http://192.168.1.108/?p=296</link>
+					<comments>http://192.168.1.108/?p=296#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Mon, 19 May 2025 04:48:08 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<category><![CDATA[Mining Automation]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=296</guid>
+
+					<description><![CDATA[Getting Started with RandomX Mining for Monero (XMR) Unlock the potential of your CPU by mining Monero (XMR) using the RandomX algorithm. This beginner-friendly guide walks you through setup, configuration, and optimization. 🔍 What is RandomX? RandomX is a proof-of-work algorithm optimized for general-purpose CPUs. It was developed for Monero (XMR) to make mining more accessible and decentralized. Unlike ASIC-dominated algorithms, RandomX gives power back to users with standard computers. 💻 Step 1: Install XMRig First, download and install XMRig — the most popular miner for RandomX. For Ubuntu/Debian: sudo apt update &#038;& sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y git clone https://github.com/xmrig/xmrig.git cd xmrig mkdir build &#038;& cd build cmake .. make -j$(nproc) ⚙️ Step 2: Configure the Miner Create or edit your config.json or use XMRig’s wizard at xmrig.com/wizard. Replace the pool, wallet address, and CPU settings to match your system. 🚀 Step 3: Start Mining ./xmrig -c config.json You’ll see real-time hashrate, CPU usage, and pool status. 🧠 Pro Tips Run XMRig as a background service for 24/7 mining Disable CPU throttling or power limits in BIOS Use htop to monitor performance 📉 When Mining Slows Down Check system temperature, verify no system updates are running, and ensure you’re not being rate-limited by your pool. Logs are your best friend — keep them enabled! 🔗 Resources XMRig Official Website Mining Pool Stats Monero Official Site 💬 Share Your Setup! Drop a comment below with your specs, tips, or challenges. The community is here to help you mine smarter — not harder.]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container"><style>
+    .mining-post-container {
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #080f19, #111d2f);
+      color: #e0f2ff;
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+      animation: fadeIn 1.8s ease-in-out;
+    }
+
+    .mining-post-container h2 {
+      font-size: 2.2rem;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff788;
+      margin-bottom: 25px;
+    }
+
+    .mining-post-container .excerpt {
+      background: linear-gradient(145deg, #0c1a26, #15293c);
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-style: italic;
+      color: #7fffd4;
+      text-shadow: 0 0 8px #00ffc2a8;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .mining-post-container h3 {
+      color: #00eaff;
+      font-size: 1.5rem;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #00d9ff99;
+    }
+
+    .mining-post-container p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin: 10px 0 20px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+
+    pre {
+      background-color: #0b0f14;
+      color: #1affff;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+      margin-top: 15px;
+    }
+
+    code {
+      color: #aaffee;
+      font-family: 'Fira Code', monospace;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+<h2>Getting Started with RandomX Mining for Monero (XMR)</h2>
+<div class="excerpt">Unlock the potential of your CPU by mining Monero (XMR) using the RandomX algorithm. This beginner-friendly guide walks you through setup, configuration, and optimization.</div>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f50d.png" alt="🔍" class="wp-smiley" style="height: 1em; max-height: 1em;" /> What is RandomX?</h3>
+<p>RandomX is a proof-of-work algorithm optimized for general-purpose CPUs. It was developed for Monero (XMR) to make mining more accessible and decentralized. Unlike ASIC-dominated algorithms, RandomX gives power back to users with standard computers.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4bb.png" alt="💻" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 1: Install XMRig</h3>
+<p>First, download and install XMRig — the most popular miner for RandomX. For Ubuntu/Debian:</p>
+<pre><code>sudo apt update && sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y
+
+git clone https://github.com/xmrig/xmrig.git
+cd xmrig
+mkdir build && cd build
+cmake ..
+make -j$(nproc)</code></pre>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2699.png" alt="⚙" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 2: Configure the Miner</h3>
+<p>Create or edit your <code>config.json</code> or use XMRig’s wizard at <a href="https://xmrig.com/wizard" target="_blank">xmrig.com/wizard</a>. Replace the pool, wallet address, and CPU settings to match your system.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 3: Start Mining</h3>
+<pre><code>./xmrig -c config.json</code></pre>
+<p>You’ll see real-time hashrate, CPU usage, and pool status.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Pro Tips</h3>
+<ul>
+<li>Run XMRig as a background service for 24/7 mining</li>
+<li>Disable CPU throttling or power limits in BIOS</li>
+<li>Use <code>htop</code> to monitor performance</li>
+</ul>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4c9.png" alt="📉" class="wp-smiley" style="height: 1em; max-height: 1em;" /> When Mining Slows Down</h3>
+<p>Check system temperature, verify no system updates are running, and ensure you’re not being rate-limited by your pool. Logs are your best friend — keep them enabled!</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f517.png" alt="🔗" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Resources</h3>
+<ul>
+<li><a href="https://xmrig.com" target="_blank">XMRig Official Website</a></li>
+<li><a href="https://miningpoolstats.stream/monero" target="_blank">Mining Pool Stats</a></li>
+<li><a href="https://getmonero.org" target="_blank">Monero Official Site</a></li>
+</ul>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ac.png" alt="💬" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Share Your Setup!</h3>
+<p>Drop a comment below with your specs, tips, or challenges. The community is here to help you mine smarter — not harder.</p>
+</div>
+
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=296</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>&#8220;Mastering Ethical Hacking with Shell Scripts &#038; Smart Tools&#8221;</title>
+		<link>http://192.168.1.108/?p=218</link>
+					<comments>http://192.168.1.108/?p=218#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sat, 10 May 2025 11:15:30 +0000</pubDate>
+				<category><![CDATA[Security & Hacking]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=218</guid>
+
+					<description><![CDATA[Secure. Script. Automate: Mastering Ethical Hacking with Shell Scripts &#038; Smart Tools Discover the future of ethical hacking — where code meets control. This post explores how shell scripting, automation, and lightweight tools can transform your security workflow into a self-defending system. 🔐 Why Ethical Hackers Need Shell Scripting In modern cybersecurity, waiting for tools isn&#8217;t enough. Ethical hackers use shell scripts to build custom utilities for scanning, monitoring, and hardening systems. A simple script can: Identify open ports or vulnerabilities Monitor suspicious file changes Deploy automated firewall updates ⚙️ Real Automation: Your First Port Scanner Instead of relying solely on Nmap, here’s how to create a minimalist port scanner using bash: # Lightweight Port Scanner for port in {20..80}; do timeout 1 bash -c "]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container">
+  <style>
+    .mining-post-container {
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #080f19, #111d2f);
+      color: #e0f2ff;
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+      animation: fadeIn 1.8s ease-in-out;
+    }
+
+    .mining-post-container h2 {
+      font-size: 2.2rem;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff788;
+      margin-bottom: 25px;
+    }
+
+    .mining-post-container .excerpt {
+      background: linear-gradient(145deg, #0c1a26, #15293c);
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-style: italic;
+      color: #7fffd4;
+      text-shadow: 0 0 8px #00ffc2a8;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .mining-post-container h3 {
+      color: #00eaff;
+      font-size: 1.5rem;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #00d9ff99;
+    }
+
+    .mining-post-container p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin: 10px 0 20px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+
+    pre {
+      background-color: #0b0f14;
+      color: #1affff;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+      margin-top: 15px;
+    }
+
+    code {
+      color: #aaffee;
+      font-family: 'Fira Code', monospace;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <h2>Secure. Script. Automate: Mastering Ethical Hacking with Shell Scripts &#038; Smart Tools</h2>
+
+  <div class="excerpt">
+    Discover the future of ethical hacking — where code meets control. This post explores how shell scripting, automation, and lightweight tools can transform your security workflow into a self-defending system.
+  </div>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f510.png" alt="🔐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Why Ethical Hackers Need Shell Scripting</h3>
+  <p>
+    In modern cybersecurity, waiting for tools isn&#8217;t enough. Ethical hackers use shell scripts to build custom utilities for scanning, monitoring, and hardening systems. A simple script can:
+    <ul>
+      <li>Identify open ports or vulnerabilities</li>
+      <li>Monitor suspicious file changes</li>
+      <li>Deploy automated firewall updates</li>
+    </ul>
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2699.png" alt="⚙" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Real Automation: Your First Port Scanner</h3>
+  <p>
+    Instead of relying solely on Nmap, here’s how to create a minimalist port scanner using bash:
+  </p>
+
+  <pre><code>
+# Lightweight Port Scanner
+for port in {20..80}; do
+  timeout 1 bash -c "</dev/tcp/192.168.1.1/$port" 2>/dev/null &&
+  echo "Port $port is open"
+done
+  </code></pre>
+
+  <p>
+    This technique gives you raw access to TCP testing — ideal for locked-down systems or fast port diagnostics.
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f441.png" alt="👁" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Monitoring with <code>inotify</code></h3>
+  <p>
+    Watch a sensitive directory in real-time:
+  </p>
+
+  <pre><code>
+#!/bin/bash
+inotifywait -m /etc/ssh/ -e modify |
+while read path action file; do
+  echo "ALERT: $file modified!"
+done
+  </code></pre>
+
+  <p>
+    With a few lines of shell, you&#8217;ve created a basic IDS (intrusion detection system) without the bloat.
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Smart Tools Every Scripter Should Know</h3>
+  <p>
+    Combine scripting with tools like:
+    <ul>
+      <li><strong>fail2ban</strong> – Ban brute force attackers with regex automation</li>
+      <li><strong>netstat</strong> / <strong>ss</strong> – Real-time network activity and port states</li>
+      <li><strong>cron</strong> – Automate regular scans and patching</li>
+    </ul>
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Building an Automated Security Arsenal</h3>
+  <p>
+    Start chaining scripts into a toolkit. Set up a boot script that runs diagnostics, syncs backups, or starts miners based on uptime. You’re no longer relying on software — you’re building it.
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ac.png" alt="💬" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Contribute to the Mission</h3>
+  <p>
+    Have your own ideas? Want to expand these scripts into full tools? Share in the comments — let’s collaborate and build real, working solutions for ethical hackers, miners, and DIY security enthusiasts.
+  </p>
+
+</div>
+
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=218</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>&#8220;Mastering Mining Tutorials: From Basics to Pro Setups&#8221;</title>
+		<link>http://192.168.1.108/?p=212</link>
+					<comments>http://192.168.1.108/?p=212#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sat, 10 May 2025 08:53:35 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<category><![CDATA[Mining Automation]]></category>
+		<category><![CDATA[Performance Tuning]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=212</guid>
+
+					<description><![CDATA[Mastering Mining Tutorials: From Basics to Pro Setups Category: Mining Tutorials &#124; Date: May 10, 2025 🔧 Introduction to Mining Cryptocurrency mining is more than just a digital gold rush — it&#8217;s a tech-powered venture that leverages your hardware to support decentralized blockchain networks in exchange for rewards. Whether you’re mining Monero with RandomX, Raptoreum with Ghostrider, or Verus Coin with VerusHash, the key lies in efficient setups, optimized configs, and a clear understanding of the tools involved. 🧠 Understanding Algorithms Algorithm Coin Notes RandomX Monero (XMR) CPU-optimized, privacy coin Ghostrider Raptoreum (RTM) Hybrid CPU algorithm VerusHash Verus Coin Efficient and lightweight 🖥️ Getting Started: Mining on Linux Tools Required: XMRig (for RandomX / Ghostrider) SRBMiner-MULTI (for VerusHash) Docker (for containerized setups) screen or tmux (for background mining) Compatible Linux distro: Ubuntu Server, Kali, Debian Minimal, etc. Sample Setup: sudo apt update &#038;& sudo apt install -y git build-essential cmake libuv1-dev libssl-dev git clone https://github.com/xmrig/xmrig.git cd xmrig &#038;& mkdir build &#038;& cd build cmake .. &#038;& make -j$(nproc) ./xmrig -o pool.supportxmr.com:5555 -u YOUR_WALLET_ADDRESS -p x -a rx/0 Dockerized XMRig: docker run -d --name xmrig --restart unless-stopped \ -e POOL=pool.supportxmr.com:5555 \ -e WALLET=YOUR_WALLET_ADDRESS \ -e ALGO=rx/0 \ alpha/docker-xmrig 🪟 Mining on Windows 1. Download miners from official sources (XMRig, SRBMiner). 2. Extract and configure config.json with your wallet and pool. 3. Run as Administrator. Use Process Lasso or MSI Afterburner to optimize. 🚀 Pro Setup: Background Service screen -S miner ./xmrig -o pool.supportxmr.com:5555 -u YOUR_WALLET_ADDRESS -p x -a rx/0 # Ctrl+A, then D to detach Systemd example: [Unit] Description=XMRig Miner After=network.target [Service] ExecStart=/opt/xmrig/xmrig -c /opt/xmrig/config.json Restart=always User=miner [Install] WantedBy=multi-user.target 🧠 Tips for Optimization Enable hugepages and disable unnecessary services. Use minimal Linux versions (no GUI). Run multiple miners in Docker for easy management. Monitor using htop, glances, or even Grafana. ⚠️ Common Errors &#038; Fixes Error Cause Fix connection reset by peer Router/DNS blocking Disable packet inspection/firewall rules low hashrate Power-saving mode Set CPU governor to performance no pool connection Misconfigured pool Double-check address &#038; firewall 🌐 Final Thoughts As we evolve into a tech-centric economy, self-hosted miners and smart setups represent both a learning opportunity and a passive income stream. With a properly configured system, even modest rigs become productive. “In the world of mining, it’s not just power that matters — it’s precision.”]]></description>
+										<content:encoded><![CDATA[
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+<style>
+.mining-post-container {
+  background: linear-gradient(135deg, #0b0f1a, #141d2b, #0e1f26);
+  color: #ccf5ff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  font-family: 'Share Tech Mono', monospace;
+  box-shadow: 0 0 25px rgba(0, 255, 180, 0.15);
+  font-size: 1.1em;
+  line-height: 1.7em;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mining-post-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 35px rgba(0, 255, 200, 0.25);
+}
+
+/* Neon glow title */
+.mining-post-container h2, 
+.mining-post-container h3 {
+  font-size: 1.8em;
+  color: #00ffe0;
+  text-shadow: 0 0 5px rgba(0, 255, 200, 0.5),
+               0 0 10px rgba(0, 255, 200, 0.2);
+  margin-bottom: 15px;
+}
+
+/* Paragraphs */
+.mining-post-container p {
+  background: rgba(15, 25, 35, 0.2);
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #cfefff;
+  margin: 10px 0;
+}
+
+/* Code blocks */
+.mining-post-container pre {
+  background-color: #0f1c24;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-x: auto;
+  color: #00ffe0;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* Soft animated matrix lines */
+.mining-post-container::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  left: -10%;
+  width: 130%;
+  height: 130%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 255, 200, 0.03),
+    rgba(0, 255, 200, 0.03) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  z-index: 0;
+  pointer-events: none;
+  animation: scrollMatrix 120s linear infinite;
+}
+
+@keyframes scrollMatrix {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100px, 100px); }
+}
+
+.mining-post-container * {
+  position: relative;
+  z-index: 1;
+}
+</style>
+</style>
+
+<div class="mining-post-container">
+  <h2>Mastering Mining Tutorials: From Basics to Pro Setups</h2>
+  <p><strong>Category:</strong> Mining Tutorials | <strong>Date:</strong> May 10, 2025</p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f527.png" alt="🔧" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Introduction to Mining</h3>
+  <p>Cryptocurrency mining is more than just a digital gold rush — it&#8217;s a tech-powered venture that leverages your hardware to support decentralized blockchain networks in exchange for rewards. Whether you’re mining Monero with RandomX, Raptoreum with Ghostrider, or Verus Coin with VerusHash, the key lies in efficient setups, optimized configs, and a clear understanding of the tools involved.</p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Understanding Algorithms</h3>
+  <table>
+    <tr><th>Algorithm</th><th>Coin</th><th>Notes</th></tr>
+    <tr><td>RandomX</td><td>Monero (XMR)</td><td>CPU-optimized, privacy coin</td></tr>
+    <tr><td>Ghostrider</td><td>Raptoreum (RTM)</td><td>Hybrid CPU algorithm</td></tr>
+    <tr><td>VerusHash</td><td>Verus Coin</td><td>Efficient and lightweight</td></tr>
+  </table>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f5a5.png" alt="🖥" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Getting Started: Mining on Linux</h3>
+  <p><strong>Tools Required:</strong></p>
+  <ul>
+    <li><code>XMRig</code> (for RandomX / Ghostrider)</li>
+    <li><code>SRBMiner-MULTI</code> (for VerusHash)</li>
+    <li><code>Docker</code> (for containerized setups)</li>
+    <li><code>screen</code> or <code>tmux</code> (for background mining)</li>
+    <li>Compatible Linux distro: Ubuntu Server, Kali, Debian Minimal, etc.</li>
+  </ul>
+
+  <p><strong>Sample Setup:</strong></p>
+  <pre><code>sudo apt update && sudo apt install -y git build-essential cmake libuv1-dev libssl-dev
+git clone https://github.com/xmrig/xmrig.git
+cd xmrig && mkdir build && cd build
+cmake .. && make -j$(nproc)
+./xmrig -o pool.supportxmr.com:5555 -u YOUR_WALLET_ADDRESS -p x -a rx/0</code></pre>
+
+  <p><strong>Dockerized XMRig:</strong></p>
+  <pre><code>docker run -d --name xmrig --restart unless-stopped \
+  -e POOL=pool.supportxmr.com:5555 \
+  -e WALLET=YOUR_WALLET_ADDRESS \
+  -e ALGO=rx/0 \
+  alpha/docker-xmrig</code></pre>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1fa9f.png" alt="🪟" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Mining on Windows</h3>
+  <p>1. Download miners from official sources (XMRig, SRBMiner).<br>
+  2. Extract and configure <code>config.json</code> with your wallet and pool.<br>
+  3. Run as Administrator. Use <em>Process Lasso</em> or <em>MSI Afterburner</em> to optimize.</p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Pro Setup: Background Service</h3>
+  <pre><code>screen -S miner
+./xmrig -o pool.supportxmr.com:5555 -u YOUR_WALLET_ADDRESS -p x -a rx/0
+# Ctrl+A, then D to detach</code></pre>
+
+  <p><strong>Systemd example:</strong></p>
+  <pre><code>[Unit]
+Description=XMRig Miner
+After=network.target
+
+[Service]
+ExecStart=/opt/xmrig/xmrig -c /opt/xmrig/config.json
+Restart=always
+User=miner
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Tips for Optimization</h3>
+  <ul>
+    <li>Enable <code>hugepages</code> and disable unnecessary services.</li>
+    <li>Use minimal Linux versions (no GUI).</li>
+    <li>Run multiple miners in Docker for easy management.</li>
+    <li>Monitor using <code>htop</code>, <code>glances</code>, or even Grafana.</li>
+  </ul>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/26a0.png" alt="⚠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Common Errors &#038; Fixes</h3>
+  <table>
+    <tr><th>Error</th><th>Cause</th><th>Fix</th></tr>
+    <tr><td>connection reset by peer</td><td>Router/DNS blocking</td><td>Disable packet inspection/firewall rules</td></tr>
+    <tr><td>low hashrate</td><td>Power-saving mode</td><td>Set CPU governor to performance</td></tr>
+    <tr><td>no pool connection</td><td>Misconfigured pool</td><td>Double-check address &#038; firewall</td></tr>
+  </table>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f310.png" alt="🌐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Final Thoughts</h3>
+  <p>As we evolve into a tech-centric economy, self-hosted miners and smart setups represent both a learning opportunity and a passive income stream. With a properly configured system, even modest rigs become productive.</p>
+
+  <blockquote>“In the world of mining, it’s not just power that matters — it’s precision.”</blockquote>
+</div>
+
+
+
+
+<p></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=212</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

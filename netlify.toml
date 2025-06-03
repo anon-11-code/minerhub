@@ -1,0 +1,12 @@
+[build]
+  publish = " "                      # Static site root
+  functions = "netlify/functions"  # Netlify serverless functions
+  command = ""                                      # Disable build (no Hugo, no framework)
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/netlify/functions/*"
+  to = "/netlify/functions/:splat"
+  status = 200

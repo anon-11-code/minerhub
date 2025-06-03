@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Mining Automation &#8211; CyberGridX</title>
+	<atom:link href="http://192.168.1.108/?feed=rss2&#038;cat=6" rel="self" type="application/rss+xml" />
+	<link>http://192.168.1.108</link>
+	<description></description>
+	<lastBuildDate>Sun, 01 Jun 2025 17:06:02 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.8.1</generator>
+
+<image>
+	<url>http://192.168.1.108/wp-content/uploads/2025/05/icon.png</url>
+	<title>Mining Automation &#8211; CyberGridX</title>
+	<link>http://192.168.1.108</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>&#8220;Mastering Multi-Coin Mining: A Steb-by-Step XMRig, RTM, and VerusHash Tutorial&#8221;</title>
+		<link>http://192.168.1.108/?p=530</link>
+					<comments>http://192.168.1.108/?p=530#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sun, 01 Jun 2025 15:35:10 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<category><![CDATA[Mining Automation]]></category>
+		<category><![CDATA[Performance Tuning]]></category>
+		<category><![CDATA[Tools & Scripts]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=530</guid>
+
+					<description><![CDATA[Tutorial: Build a Multi-Coin Mining Rig with XMRig, RTM, and VerusHash Ready to mine XMR (RandomX), RTM (GhostRider), and Verus (VerusHash)? This step-by-step tutorial equips you with tools, scripts, and automation to set up and optimize a multi-coin mining rig on Linux. 🛠 Step 1: Gather Essential Mining Tools First, install the core tools for mining: XMRig for Monero (XMR): https://xmrig.com RTM Core Wallet: https://rtmcoin.pro Verus Desktop: https://verus.io Install dependencies: sudo apt install build-essential cmake htop 📥 Step 2: Install and Configure XMRig (RandomX) Download and extract XMRig: wget https://github.com/xmrig/xmrig/releases/download/v6.21.0/xmrig-6.21.0-linux-x64.tar.gz tar -xvf xmrig-6.21.0-linux-x64.tar.gz cd xmrig-6.21.0 Create a config.json: { "pools": [ { "url": "pool.supportxmr.com:5555", "user": "YOUR_XMR_ADDRESS", "pass": "x", "keepalive": true, "tls": false } ], "cpu": { "enabled": true, "huge-pages": true, "threads": 2, "priority": 1 }, "log-file": "xmrig.log", "verbose": 2 } Start mining: ./xmrig --config=config.json 💻 Step 3: Set Up RTM with GhostRider wget https://rtmcoin.pro/downloads/rtm-core-latest-linux.tar.gz tar -xvf rtm-core-latest-linux.tar.gz cd rtm-core ./rtm-core-install.sh Edit ~/.rtm/rtm.conf: rpcuser=youruser rpcpassword=yourpass rpcallowip=127.0.0.1 rpcport=8332 server=1 Create start-rtm.sh: #!/bin/bash RTM_DIR="/path/to/rtm-core" LOG="rtm-mining-$(date +%F).log" cd $RTM_DIR &#124;&#124; exit echo "[*] Starting RTM mining..." &#124; tee $LOG ./rtm-cli -rpcuser=youruser -rpcpassword=yourpass startmining &#038; 🔧 Step 4: VerusHash Mining (Verus) Build Verus miner: git clone https://github.com/VerusCoin/nheqminer.git cd nheqminer mkdir build &#038;& cd build cmake .. make -j$(nproc) Create tune-verus.sh: #!/bin/bash echo "[*] Tuning VerusHash performance..." sysctl -w vm.nr_hugepages=128 echo performance &#124; tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor ./nheqminer -l vrsc.miner.rocks:3333 -u YOUR_VRSC_ADDRESS -p x &#038; echo "[+] VerusHash optimized and running" 🤖 Step 5: Master Script: mine-all.sh #!/bin/bash echo "[*] Starting all miners..." cd /path/to/xmrig &#038;& ./xmrig --config=config.json &#038; cd /path/to/rtm-core &#038;& ./start-rtm.sh &#038; cd /path/to/nheqminer/build &#038;& ./tune-verus.sh &#038; echo "[+] All mining processes started" Schedule mining on boot: @reboot /path/to/mine-all.sh 📊 Step 6: Monitor Hashrate Create monitor-hash.sh: #!/bin/bash LOG="hashrate-$(date +%F).log" echo "[*] Checking hashrates..." &#124; tee $LOG grep "speed" /path/to/xmrig/xmrig.log &#124; tail -1 &#124; tee -a $LOG curl -s http://127.0.0.1:8332 -u youruser:yourpass -d '{"method":"getmininginfo"}' &#124; tee -a $LOG pidof nheqminer &#038;& echo "VerusHash running" &#124;&#124; echo "VerusHash stopped" &#124; tee -a $LOG 🔍 Step 7: Troubleshoot Low Hashrate: Enable hugepages &#038; check CPU governor Pool Errors: Validate pool config &#038; TLS settings High Temps: Reduce threads or CPU intensity 🌟 Step 8: Scale + Share Add failover pools in config.json, tweak thread counts, and share your scripts on Miner Hub&#8217;s X!]]></description>
+										<content:encoded><![CDATA[<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><br />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script></p>
+<style>
+.mining-post-container {
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(135deg, #0a111d, #141f30);
+  color: #e0f7ff;
+  border-radius: 20px;
+  padding: 35px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 30px rgba(0, 255, 200, 0.12);
+  animation: fadeIn 1.8s ease-in-out;
+}
+.mining-post-container h2 {
+  font-size: 2.2rem;
+  color: #00fff7;
+  text-shadow: 0 0 10px #00fff788;
+  margin-bottom: 25px;
+}
+.mining-post-container .excerpt {
+  background: linear-gradient(145deg, #0e1c2a, #162c3f);
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-style: italic;
+  color: #7fffd4;
+  text-shadow: 0 0 8px #00ffc2a8;
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+  margin-bottom: 30px;
+}
+.mining-post-container h3 {
+  color: #00eaff;
+  font-size: 1.5rem;
+  margin-top: 30px;
+  text-shadow: 0 0 8px #00d9ff99;
+}
+.mining-post-container p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 10px 0 20px;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+pre[class*="language-"] {
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+  .mining-post-container { width: 90%; padding: 20px; }
+}
+</style>
+<div class="mining-post-container">
+<h2>Tutorial: Build a Multi-Coin Mining Rig with XMRig, RTM, and VerusHash</h2>
+<div class="excerpt">
+    Ready to mine XMR (RandomX), RTM (GhostRider), and Verus (VerusHash)? This step-by-step tutorial equips you with tools, scripts, and automation to set up and optimize a multi-coin mining rig on Linux.
+  </div>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f6e0.png" alt="🛠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 1: Gather Essential Mining Tools</h3>
+<p>
+    First, install the core tools for mining:</p>
+<ul>
+<li>XMRig for Monero (XMR): <code>https://xmrig.com</code></li>
+<li>RTM Core Wallet: <code>https://rtmcoin.pro</code></li>
+<li>Verus Desktop: <code>https://verus.io</code></li>
+</ul>
+<p>    Install dependencies:
+  </p>
+<pre><code class="language-bash">sudo apt install build-essential cmake htop</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e5.png" alt="📥" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 2: Install and Configure XMRig (RandomX)</h3>
+<p>Download and extract XMRig:</p>
+<pre><code class="language-bash">
+wget https://github.com/xmrig/xmrig/releases/download/v6.21.0/xmrig-6.21.0-linux-x64.tar.gz
+tar -xvf xmrig-6.21.0-linux-x64.tar.gz
+cd xmrig-6.21.0
+</code></pre>
+<p>Create a <code>config.json</code>:</p>
+<pre><code class="language-json">{
+  "pools": [
+    {
+      "url": "pool.supportxmr.com:5555",
+      "user": "YOUR_XMR_ADDRESS",
+      "pass": "x",
+      "keepalive": true,
+      "tls": false
+    }
+  ],
+  "cpu": {
+    "enabled": true,
+    "huge-pages": true,
+    "threads": 2,
+    "priority": 1
+  },
+  "log-file": "xmrig.log",
+  "verbose": 2
+}</code></pre>
+<p>Start mining:</p>
+<pre><code class="language-bash">./xmrig --config=config.json</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4bb.png" alt="💻" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 3: Set Up RTM with GhostRider</h3>
+<pre><code class="language-bash">
+wget https://rtmcoin.pro/downloads/rtm-core-latest-linux.tar.gz
+tar -xvf rtm-core-latest-linux.tar.gz
+cd rtm-core
+./rtm-core-install.sh
+</code></pre>
+<p>Edit <code>~/.rtm/rtm.conf</code>:</p>
+<pre><code class="language-properties">
+rpcuser=youruser
+rpcpassword=yourpass
+rpcallowip=127.0.0.1
+rpcport=8332
+server=1
+</code></pre>
+<p>Create <code>start-rtm.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+RTM_DIR="/path/to/rtm-core"
+LOG="rtm-mining-$(date +%F).log"
+
+cd $RTM_DIR || exit
+echo "[*] Starting RTM mining..." | tee $LOG
+./rtm-cli -rpcuser=youruser -rpcpassword=yourpass startmining &</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f527.png" alt="🔧" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 4: VerusHash Mining (Verus)</h3>
+<p>Build Verus miner:</p>
+<pre><code class="language-bash">
+git clone https://github.com/VerusCoin/nheqminer.git
+cd nheqminer
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+</code></pre>
+<p>Create <code>tune-verus.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+echo "[*] Tuning VerusHash performance..."
+sysctl -w vm.nr_hugepages=128
+echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+./nheqminer -l vrsc.miner.rocks:3333 -u YOUR_VRSC_ADDRESS -p x &
+echo "[+] VerusHash optimized and running"
+</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f916.png" alt="🤖" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 5: Master Script: <code>mine-all.sh</code></h3>
+<pre><code class="language-bash">#!/bin/bash
+echo "[*] Starting all miners..."
+cd /path/to/xmrig && ./xmrig --config=config.json &
+cd /path/to/rtm-core && ./start-rtm.sh &
+cd /path/to/nheqminer/build && ./tune-verus.sh &
+echo "[+] All mining processes started"
+</code></pre>
+<p>Schedule mining on boot:</p>
+<pre><code class="language-bash">@reboot /path/to/mine-all.sh</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ca.png" alt="📊" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 6: Monitor Hashrate</h3>
+<p>Create <code>monitor-hash.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+LOG="hashrate-$(date +%F).log"
+echo "[*] Checking hashrates..." | tee $LOG
+grep "speed" /path/to/xmrig/xmrig.log | tail -1 | tee -a $LOG
+curl -s http://127.0.0.1:8332 -u youruser:yourpass -d '{"method":"getmininginfo"}' | tee -a $LOG
+pidof nheqminer && echo "VerusHash running" || echo "VerusHash stopped" | tee -a $LOG
+</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f50d.png" alt="🔍" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 7: Troubleshoot</h3>
+<ul>
+<li><strong>Low Hashrate:</strong> Enable hugepages &#038; check CPU governor</li>
+<li><strong>Pool Errors:</strong> Validate pool config &#038; TLS settings</li>
+<li><strong>High Temps:</strong> Reduce threads or CPU intensity</li>
+</ul>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f31f.png" alt="🌟" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 8: Scale + Share</h3>
+<p>Add failover pools in <code>config.json</code>, tweak thread counts, and share your scripts on Miner Hub&#8217;s X!</p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=530</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>🚀 Getting Started with RandomX Mining for Monero (XMR)</title>
+		<link>http://192.168.1.108/?p=296</link>
+					<comments>http://192.168.1.108/?p=296#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Mon, 19 May 2025 04:48:08 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<category><![CDATA[Mining Automation]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=296</guid>
+
+					<description><![CDATA[Getting Started with RandomX Mining for Monero (XMR) Unlock the potential of your CPU by mining Monero (XMR) using the RandomX algorithm. This beginner-friendly guide walks you through setup, configuration, and optimization. 🔍 What is RandomX? RandomX is a proof-of-work algorithm optimized for general-purpose CPUs. It was developed for Monero (XMR) to make mining more accessible and decentralized. Unlike ASIC-dominated algorithms, RandomX gives power back to users with standard computers. 💻 Step 1: Install XMRig First, download and install XMRig — the most popular miner for RandomX. For Ubuntu/Debian: sudo apt update &#038;& sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y git clone https://github.com/xmrig/xmrig.git cd xmrig mkdir build &#038;& cd build cmake .. make -j$(nproc) ⚙️ Step 2: Configure the Miner Create or edit your config.json or use XMRig’s wizard at xmrig.com/wizard. Replace the pool, wallet address, and CPU settings to match your system. 🚀 Step 3: Start Mining ./xmrig -c config.json You’ll see real-time hashrate, CPU usage, and pool status. 🧠 Pro Tips Run XMRig as a background service for 24/7 mining Disable CPU throttling or power limits in BIOS Use htop to monitor performance 📉 When Mining Slows Down Check system temperature, verify no system updates are running, and ensure you’re not being rate-limited by your pool. Logs are your best friend — keep them enabled! 🔗 Resources XMRig Official Website Mining Pool Stats Monero Official Site 💬 Share Your Setup! Drop a comment below with your specs, tips, or challenges. The community is here to help you mine smarter — not harder.]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container"><style>
+    .mining-post-container {
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #080f19, #111d2f);
+      color: #e0f2ff;
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+      animation: fadeIn 1.8s ease-in-out;
+    }
+
+    .mining-post-container h2 {
+      font-size: 2.2rem;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff788;
+      margin-bottom: 25px;
+    }
+
+    .mining-post-container .excerpt {
+      background: linear-gradient(145deg, #0c1a26, #15293c);
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-style: italic;
+      color: #7fffd4;
+      text-shadow: 0 0 8px #00ffc2a8;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .mining-post-container h3 {
+      color: #00eaff;
+      font-size: 1.5rem;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #00d9ff99;
+    }
+
+    .mining-post-container p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin: 10px 0 20px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+
+    pre {
+      background-color: #0b0f14;
+      color: #1affff;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+      margin-top: 15px;
+    }
+
+    code {
+      color: #aaffee;
+      font-family: 'Fira Code', monospace;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+<h2>Getting Started with RandomX Mining for Monero (XMR)</h2>
+<div class="excerpt">Unlock the potential of your CPU by mining Monero (XMR) using the RandomX algorithm. This beginner-friendly guide walks you through setup, configuration, and optimization.</div>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f50d.png" alt="🔍" class="wp-smiley" style="height: 1em; max-height: 1em;" /> What is RandomX?</h3>
+<p>RandomX is a proof-of-work algorithm optimized for general-purpose CPUs. It was developed for Monero (XMR) to make mining more accessible and decentralized. Unlike ASIC-dominated algorithms, RandomX gives power back to users with standard computers.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4bb.png" alt="💻" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 1: Install XMRig</h3>
+<p>First, download and install XMRig — the most popular miner for RandomX. For Ubuntu/Debian:</p>
+<pre><code>sudo apt update && sudo apt install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y
+
+git clone https://github.com/xmrig/xmrig.git
+cd xmrig
+mkdir build && cd build
+cmake ..
+make -j$(nproc)</code></pre>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2699.png" alt="⚙" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 2: Configure the Miner</h3>
+<p>Create or edit your <code>config.json</code> or use XMRig’s wizard at <a href="https://xmrig.com/wizard" target="_blank">xmrig.com/wizard</a>. Replace the pool, wallet address, and CPU settings to match your system.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 3: Start Mining</h3>
+<pre><code>./xmrig -c config.json</code></pre>
+<p>You’ll see real-time hashrate, CPU usage, and pool status.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Pro Tips</h3>
+<ul>
+<li>Run XMRig as a background service for 24/7 mining</li>
+<li>Disable CPU throttling or power limits in BIOS</li>
+<li>Use <code>htop</code> to monitor performance</li>
+</ul>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4c9.png" alt="📉" class="wp-smiley" style="height: 1em; max-height: 1em;" /> When Mining Slows Down</h3>
+<p>Check system temperature, verify no system updates are running, and ensure you’re not being rate-limited by your pool. Logs are your best friend — keep them enabled!</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f517.png" alt="🔗" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Resources</h3>
+<ul>
+<li><a href="https://xmrig.com" target="_blank">XMRig Official Website</a></li>
+<li><a href="https://miningpoolstats.stream/monero" target="_blank">Mining Pool Stats</a></li>
+<li><a href="https://getmonero.org" target="_blank">Monero Official Site</a></li>
+</ul>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ac.png" alt="💬" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Share Your Setup!</h3>
+<p>Drop a comment below with your specs, tips, or challenges. The community is here to help you mine smarter — not harder.</p>
+</div>
+
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=296</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>&#8220;Mastering Mining Tutorials: From Basics to Pro Setups&#8221;</title>
+		<link>http://192.168.1.108/?p=212</link>
+					<comments>http://192.168.1.108/?p=212#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sat, 10 May 2025 08:53:35 +0000</pubDate>
+				<category><![CDATA[Low-Power Mining]]></category>
+		<category><![CDATA[Mining Automation]]></category>
+		<category><![CDATA[Performance Tuning]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=212</guid>
+
+					<description><![CDATA[Mastering Mining Tutorials: From Basics to Pro Setups Category: Mining Tutorials &#124; Date: May 10, 2025 🔧 Introduction to Mining Cryptocurrency mining is more than just a digital gold rush — it&#8217;s a tech-powered venture that leverages your hardware to support decentralized blockchain networks in exchange for rewards. Whether you’re mining Monero with RandomX, Raptoreum with Ghostrider, or Verus Coin with VerusHash, the key lies in efficient setups, optimized configs, and a clear understanding of the tools involved. 🧠 Understanding Algorithms Algorithm Coin Notes RandomX Monero (XMR) CPU-optimized, privacy coin Ghostrider Raptoreum (RTM) Hybrid CPU algorithm VerusHash Verus Coin Efficient and lightweight 🖥️ Getting Started: Mining on Linux Tools Required: XMRig (for RandomX / Ghostrider) SRBMiner-MULTI (for VerusHash) Docker (for containerized setups) screen or tmux (for background mining) Compatible Linux distro: Ubuntu Server, Kali, Debian Minimal, etc. Sample Setup: sudo apt update &#038;& sudo apt install -y git build-essential cmake libuv1-dev libssl-dev git clone https://github.com/xmrig/xmrig.git cd xmrig &#038;& mkdir build &#038;& cd build cmake .. &#038;& make -j$(nproc) ./xmrig -o pool.supportxmr.com:5555 -u YOUR_WALLET_ADDRESS -p x -a rx/0 Dockerized XMRig: docker run -d --name xmrig --restart unless-stopped \ -e POOL=pool.supportxmr.com:5555 \ -e WALLET=YOUR_WALLET_ADDRESS \ -e ALGO=rx/0 \ alpha/docker-xmrig 🪟 Mining on Windows 1. Download miners from official sources (XMRig, SRBMiner). 2. Extract and configure config.json with your wallet and pool. 3. Run as Administrator. Use Process Lasso or MSI Afterburner to optimize. 🚀 Pro Setup: Background Service screen -S miner ./xmrig -o pool.supportxmr.com:5555 -u YOUR_WALLET_ADDRESS -p x -a rx/0 # Ctrl+A, then D to detach Systemd example: [Unit] Description=XMRig Miner After=network.target [Service] ExecStart=/opt/xmrig/xmrig -c /opt/xmrig/config.json Restart=always User=miner [Install] WantedBy=multi-user.target 🧠 Tips for Optimization Enable hugepages and disable unnecessary services. Use minimal Linux versions (no GUI). Run multiple miners in Docker for easy management. Monitor using htop, glances, or even Grafana. ⚠️ Common Errors &#038; Fixes Error Cause Fix connection reset by peer Router/DNS blocking Disable packet inspection/firewall rules low hashrate Power-saving mode Set CPU governor to performance no pool connection Misconfigured pool Double-check address &#038; firewall 🌐 Final Thoughts As we evolve into a tech-centric economy, self-hosted miners and smart setups represent both a learning opportunity and a passive income stream. With a properly configured system, even modest rigs become productive. “In the world of mining, it’s not just power that matters — it’s precision.”]]></description>
+										<content:encoded><![CDATA[
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+<style>
+.mining-post-container {
+  background: linear-gradient(135deg, #0b0f1a, #141d2b, #0e1f26);
+  color: #ccf5ff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  font-family: 'Share Tech Mono', monospace;
+  box-shadow: 0 0 25px rgba(0, 255, 180, 0.15);
+  font-size: 1.1em;
+  line-height: 1.7em;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mining-post-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 35px rgba(0, 255, 200, 0.25);
+}
+
+/* Neon glow title */
+.mining-post-container h2, 
+.mining-post-container h3 {
+  font-size: 1.8em;
+  color: #00ffe0;
+  text-shadow: 0 0 5px rgba(0, 255, 200, 0.5),
+               0 0 10px rgba(0, 255, 200, 0.2);
+  margin-bottom: 15px;
+}
+
+/* Paragraphs */
+.mining-post-container p {
+  background: rgba(15, 25, 35, 0.2);
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #cfefff;
+  margin: 10px 0;
+}
+
+/* Code blocks */
+.mining-post-container pre {
+  background-color: #0f1c24;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-x: auto;
+  color: #00ffe0;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* Soft animated matrix lines */
+.mining-post-container::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  left: -10%;
+  width: 130%;
+  height: 130%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 255, 200, 0.03),
+    rgba(0, 255, 200, 0.03) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  z-index: 0;
+  pointer-events: none;
+  animation: scrollMatrix 120s linear infinite;
+}
+
+@keyframes scrollMatrix {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100px, 100px); }
+}
+
+.mining-post-container * {
+  position: relative;
+  z-index: 1;
+}
+</style>
+</style>
+
+<div class="mining-post-container">
+  <h2>Mastering Mining Tutorials: From Basics to Pro Setups</h2>
+  <p><strong>Category:</strong> Mining Tutorials | <strong>Date:</strong> May 10, 2025</p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f527.png" alt="🔧" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Introduction to Mining</h3>
+  <p>Cryptocurrency mining is more than just a digital gold rush — it&#8217;s a tech-powered venture that leverages your hardware to support decentralized blockchain networks in exchange for rewards. Whether you’re mining Monero with RandomX, Raptoreum with Ghostrider, or Verus Coin with VerusHash, the key lies in efficient setups, optimized configs, and a clear understanding of the tools involved.</p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Understanding Algorithms</h3>
+  <table>
+    <tr><th>Algorithm</th><th>Coin</th><th>Notes</th></tr>
+    <tr><td>RandomX</td><td>Monero (XMR)</td><td>CPU-optimized, privacy coin</td></tr>
+    <tr><td>Ghostrider</td><td>Raptoreum (RTM)</td><td>Hybrid CPU algorithm</td></tr>
+    <tr><td>VerusHash</td><td>Verus Coin</td><td>Efficient and lightweight</td></tr>
+  </table>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f5a5.png" alt="🖥" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Getting Started: Mining on Linux</h3>
+  <p><strong>Tools Required:</strong></p>
+  <ul>
+    <li><code>XMRig</code> (for RandomX / Ghostrider)</li>
+    <li><code>SRBMiner-MULTI</code> (for VerusHash)</li>
+    <li><code>Docker</code> (for containerized setups)</li>
+    <li><code>screen</code> or <code>tmux</code> (for background mining)</li>
+    <li>Compatible Linux distro: Ubuntu Server, Kali, Debian Minimal, etc.</li>
+  </ul>
+
+  <p><strong>Sample Setup:</strong></p>
+  <pre><code>sudo apt update && sudo apt install -y git build-essential cmake libuv1-dev libssl-dev
+git clone https://github.com/xmrig/xmrig.git
+cd xmrig && mkdir build && cd build
+cmake .. && make -j$(nproc)
+./xmrig -o pool.supportxmr.com:5555 -u YOUR_WALLET_ADDRESS -p x -a rx/0</code></pre>
+
+  <p><strong>Dockerized XMRig:</strong></p>
+  <pre><code>docker run -d --name xmrig --restart unless-stopped \
+  -e POOL=pool.supportxmr.com:5555 \
+  -e WALLET=YOUR_WALLET_ADDRESS \
+  -e ALGO=rx/0 \
+  alpha/docker-xmrig</code></pre>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1fa9f.png" alt="🪟" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Mining on Windows</h3>
+  <p>1. Download miners from official sources (XMRig, SRBMiner).<br>
+  2. Extract and configure <code>config.json</code> with your wallet and pool.<br>
+  3. Run as Administrator. Use <em>Process Lasso</em> or <em>MSI Afterburner</em> to optimize.</p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Pro Setup: Background Service</h3>
+  <pre><code>screen -S miner
+./xmrig -o pool.supportxmr.com:5555 -u YOUR_WALLET_ADDRESS -p x -a rx/0
+# Ctrl+A, then D to detach</code></pre>
+
+  <p><strong>Systemd example:</strong></p>
+  <pre><code>[Unit]
+Description=XMRig Miner
+After=network.target
+
+[Service]
+ExecStart=/opt/xmrig/xmrig -c /opt/xmrig/config.json
+Restart=always
+User=miner
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Tips for Optimization</h3>
+  <ul>
+    <li>Enable <code>hugepages</code> and disable unnecessary services.</li>
+    <li>Use minimal Linux versions (no GUI).</li>
+    <li>Run multiple miners in Docker for easy management.</li>
+    <li>Monitor using <code>htop</code>, <code>glances</code>, or even Grafana.</li>
+  </ul>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/26a0.png" alt="⚠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Common Errors &#038; Fixes</h3>
+  <table>
+    <tr><th>Error</th><th>Cause</th><th>Fix</th></tr>
+    <tr><td>connection reset by peer</td><td>Router/DNS blocking</td><td>Disable packet inspection/firewall rules</td></tr>
+    <tr><td>low hashrate</td><td>Power-saving mode</td><td>Set CPU governor to performance</td></tr>
+    <tr><td>no pool connection</td><td>Misconfigured pool</td><td>Double-check address &#038; firewall</td></tr>
+  </table>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f310.png" alt="🌐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Final Thoughts</h3>
+  <p>As we evolve into a tech-centric economy, self-hosted miners and smart setups represent both a learning opportunity and a passive income stream. With a properly configured system, even modest rigs become productive.</p>
+
+  <blockquote>“In the world of mining, it’s not just power that matters — it’s precision.”</blockquote>
+</div>
+
+
+
+
+<p></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=212</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

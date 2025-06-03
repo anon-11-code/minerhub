@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Security &amp; Hacking &#8211; CyberGridX</title>
+	<atom:link href="http://192.168.1.108/?feed=rss2&#038;cat=7" rel="self" type="application/rss+xml" />
+	<link>http://192.168.1.108</link>
+	<description></description>
+	<lastBuildDate>Sun, 01 Jun 2025 15:06:42 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.8.1</generator>
+
+<image>
+	<url>http://192.168.1.108/wp-content/uploads/2025/05/icon.png</url>
+	<title>Security &amp; Hacking &#8211; CyberGridX</title>
+	<link>http://192.168.1.108</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>🔐 &#8220;Terminal Tripwire: Build a Real-Time Intrusion Alert System on Linux (DIY SIEM Lite)&#8221;</title>
+		<link>http://192.168.1.108/?p=528</link>
+					<comments>http://192.168.1.108/?p=528#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sun, 01 Jun 2025 15:05:18 +0000</pubDate>
+				<category><![CDATA[Security & Hacking]]></category>
+		<category><![CDATA[Tools & Scripts]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=528</guid>
+
+					<description><![CDATA[🔐 Terminal Tripwire: Build a Real-Time Intrusion Alert System on Linux (DIY SIEM Lite) Turn your Linux terminal into a security sensor. In this guide, you&#8217;ll build a lightweight intrusion detection system using bash, inotify, and Telegram — no bloated software, no excuses. 👀 Introduction Not all threats need enterprise tools to detect. With a few native Linux utilities, you can monitor your system for suspicious activity and receive **real-time alerts** straight to your device. Think of it as a custom-built, hacker-grade tripwire system — perfect for servers, home labs, and mining rigs. 🔧 What You&#8217;ll Build A bash-based watcher that: Monitors sensitive directories for file events (create, delete, access) Watches for login failures and suspicious auth logs Notifies you instantly via Telegram 🛠️ Requirements - A Debian/Ubuntu Linux machine - Root/sudo access - Telegram account - curl, inotify-tools 🚀 Step 1: Install Required Tools Install the `inotify-tools` package to monitor filesystem changes. sudo apt update sudo apt install inotify-tools curl 📦 Step 2: Create a Telegram Bot Open Telegram and search for @BotFather Run /newbot and follow instructions Save the generated bot token Next, get your personal chat ID (or a group ID if you’re monitoring with a team): curl -s https://api.telegram.org/bot&#60;your_token&#62;/getUpdates Send a test message to the bot and check the response for your chat ID. ⚠️ Step 3: Create Your Alert Script Save this as /opt/defense/send_alert.sh and make it executable: #!/bin/bash TOKEN="your_bot_token" CHAT_ID="your_chat_id" MESSAGE="$1" curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="$MESSAGE" chmod +x /opt/defense/send_alert.sh 📡 Step 4: Monitor Sensitive Folders Create a watcher script: #!/bin/bash WATCHDIR="/etc" inotifywait -m -e access,create,delete $WATCHDIR &#124; while read line do /opt/defense/send_alert.sh "🚨 Activity detected in $WATCHDIR: $line" done Make it executable and test it by creating or reading files in /etc: touch /etc/testfile cat /etc/passwd 🔐 Step 5: Monitor SSH Brute Force Attempts tail -Fn0 /var/log/auth.log &#124; \ while read line ; do echo "$line" &#124; grep "Failed password" &#62;/dev/null if [ $? = 0 ]; then /opt/defense/send_alert.sh "🔐 SSH Alert: $line" fi done 🧠 Bonus: Add Persistence with Cron Add the watchers to cron so they restart on reboot: @reboot /opt/defense/folder_watch.sh &#38; @reboot /opt/defense/ssh_watch.sh &#38; ✅ Final Thoughts This is not a replacement for full-blown SIEMs or firewalls — it&#8217;s a rapid-response terminal toolkit that gives you visibility and control. Pair it with fail2ban, proper firewalling, and rootkit scanning for a layered defense. Got a mining rig, web server, or homelab? Don&#8217;t leave it blind — **build your terminal tripwire today.**]]></description>
+										<content:encoded><![CDATA[ <div class="mining-post-container"><style> .mining-post-container { font-family: 'Share Tech Mono', monospace; background: linear-gradient(135deg, #0a111d, #141f30); color: #e0f7ff; border-radius: 20px; padding: 35px; margin-bottom: 40px; box-shadow: 0 0 30px rgba(0, 255, 200, 0.12); animation: fadeIn 1.8s ease-in-out; }
+.mining-post-container h2 {
+font-size: 2.2rem;
+color: #00fff7;
+text-shadow: 0 0 10px #00fff788;
+margin-bottom: 25px;
+}
+
+.mining-post-container .excerpt {
+background: linear-gradient(145deg, #0e1c2a, #162c3f);
+padding: 15px 20px;
+border-radius: 12px;
+font-style: italic;
+color: #7fffd4;
+text-shadow: 0 0 8px #00ffc2a8;
+box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+margin-bottom: 30px;
+}
+
+.mining-post-container h3 {
+color: #00eaff;
+font-size: 1.5rem;
+margin-top: 30px;
+text-shadow: 0 0 8px #00d9ff99;
+}
+
+.mining-post-container p {
+line-height: 1.7;
+font-size: 1.1rem;
+margin: 10px 0 20px;
+background: rgba(0, 0, 0, 0.35);
+padding: 12px 18px;
+border-radius: 10px;
+}
+
+pre {
+background-color: #0b0f14;
+color: #1affff;
+padding: 20px;
+border-radius: 12px;
+overflow-x: auto;
+box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+margin-top: 15px;
+}
+
+code {
+color: #aaffee;
+font-family: 'Fira Code', monospace;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<h2><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f510.png" alt="🔐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Terminal Tripwire: Build a Real-Time Intrusion Alert System on Linux (DIY SIEM Lite)</h2> <div class="excerpt">Turn your Linux terminal into a security sensor. In this guide, you&#8217;ll build a lightweight intrusion detection system using bash, inotify, and Telegram — no bloated software, no excuses.</div> <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f440.png" alt="👀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Introduction</h3> <p>Not all threats need enterprise tools to detect. With a few native Linux utilities, you can monitor your system for suspicious activity and receive **real-time alerts** straight to your device. Think of it as a custom-built, hacker-grade tripwire system — perfect for servers, home labs, and mining rigs.</p> <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f527.png" alt="🔧" class="wp-smiley" style="height: 1em; max-height: 1em;" /> What You&#8217;ll Build</h3> <p> A bash-based watcher that: <ul> <li>Monitors sensitive directories for file events (create, delete, access)</li> <li>Watches for login failures and suspicious auth logs</li> <li>Notifies you instantly via Telegram</li> </ul> </p> <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f6e0.png" alt="🛠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Requirements</h3> <pre><code>- A Debian/Ubuntu Linux machine - Root/sudo access - Telegram account - curl, inotify-tools</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 1: Install Required Tools</h3> <p>Install the `inotify-tools` package to monitor filesystem changes.</p> <pre><code>sudo apt update sudo apt install inotify-tools curl</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e6.png" alt="📦" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 2: Create a Telegram Bot</h3> <ol> <li>Open Telegram and search for <code>@BotFather</code></li> <li>Run <code>/newbot</code> and follow instructions</li> <li>Save the generated <strong>bot token</strong></li> </ol> <p>Next, get your personal chat ID (or a group ID if you’re monitoring with a team):</p> <pre><code>curl -s https://api.telegram.org/bot&lt;your_token&gt;/getUpdates</code></pre> <p>Send a test message to the bot and check the response for your chat ID.</p>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/26a0.png" alt="⚠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 3: Create Your Alert Script</h3> <p>Save this as <code>/opt/defense/send_alert.sh</code> and make it executable:</p> <pre><code>#!/bin/bash TOKEN="your_bot_token" CHAT_ID="your_chat_id" MESSAGE="$1"
+curl -s -X POST https://api.telegram.org/bot$TOKEN/sendMessage
+-d chat_id=$CHAT_ID -d text="$MESSAGE"</code></pre>
+
+<pre><code>chmod +x /opt/defense/send_alert.sh</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e1.png" alt="📡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 4: Monitor Sensitive Folders</h3> <p>Create a watcher script:</p> <pre><code>#!/bin/bash WATCHDIR="/etc" inotifywait -m -e access,create,delete $WATCHDIR | while read line do /opt/defense/send_alert.sh "&#x1f6a8; Activity detected in $WATCHDIR: $line" done</code></pre> <p>Make it executable and test it by creating or reading files in /etc:</p> <pre><code>touch /etc/testfile cat /etc/passwd</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f510.png" alt="🔐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Step 5: Monitor SSH Brute Force Attempts</h3> <pre><code>tail -Fn0 /var/log/auth.log | \ while read line ; do echo "$line" | grep "Failed password" &gt;/dev/null if [ $? = 0 ]; then /opt/defense/send_alert.sh "&#x1f510; SSH Alert: $line" fi done</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Bonus: Add Persistence with Cron</h3> <p>Add the watchers to cron so they restart on reboot:</p> <pre><code>@reboot /opt/defense/folder_watch.sh &amp; @reboot /opt/defense/ssh_watch.sh &amp;</code></pre>
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2705.png" alt="✅" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Final Thoughts</h3> <p>This is not a replacement for full-blown SIEMs or firewalls — it&#8217;s a rapid-response terminal toolkit that gives you visibility and control. Pair it with fail2ban, proper firewalling, and rootkit scanning for a layered defense.</p> <p>Got a mining rig, web server, or homelab? Don&#8217;t leave it blind — **build your terminal tripwire today.**</p> </div> ]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=528</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Defense by Design: Recon, Harden, and Automate with Tactical Shell Scripts</title>
+		<link>http://192.168.1.108/?p=340</link>
+					<comments>http://192.168.1.108/?p=340#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sun, 25 May 2025 15:55:20 +0000</pubDate>
+				<category><![CDATA[Security & Hacking]]></category>
+		<category><![CDATA[Tools & Scripts]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=340</guid>
+
+					<description><![CDATA[Defense by Design: Recon, Harden, and Automate with Tactical Shell Scripts Step beyond the basics. This guide reveals how ethical hackers can create proactive, self-healing defenses using advanced recon and automation scripts — all from your terminal. 📡 Network Recon &#038; Auto-Mapping Map out your LAN, identify rogue devices, and store logs automatically with this Bash + Nmap combo: #!/bin/bash subnet="192.168.1.0/24" log="lan-scan-$(date +%F).log" echo "[*] Scanning LAN..." &#124; tee $log nmap -sn $subnet &#124; tee -a $log echo "[+] Devices logged to $log" This gives you daily visibility into what&#8217;s live. Hook it to a cron job and sleep easy. 🛡 Auto-Hardening Linux: Defense via Script Automate firewall, SSH, and root login protection in one swoop: #!/bin/bash echo "[*] Hardening firewall..." ufw default deny incoming ufw default allow outgoing ufw allow ssh ufw enable echo "[*] Disabling root SSH login..." sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config systemctl restart sshd echo "[*] Installing fail2ban..." apt install -y fail2ban systemctl enable fail2ban systemctl start fail2ban One command, and your server’s shielded. Pair this with monitoring tools for full defense cycles. 🎯 Auto-Ban Suspicious Traffic Let logs tell you when to strike — here’s a live-monitor that scans for brute-force attempts: #!/bin/bash tail -F /var/log/auth.log &#124; while read line; do echo "$line" &#124; grep "Failed password" &#038;>/dev/null if [ $? -eq 0 ]; then ip=$(echo "$line" &#124; awk '{print $(NF-3)}') echo "[!] Detected brute force from $ip" ufw deny from $ip fi done Turn log lines into real-time triggers. Fully customizable for any log pattern or service. 🔁 Schedule, Repeat, Defend Use `cron` to automate these at boot or regular intervals. For example: # Daily recon at 7 AM 0 7 * * * /opt/scripts/lan-recon.sh # Auto-hardening on reboot @reboot /opt/scripts/harden.sh Your system becomes a living fortress — updating, logging, and fighting threats while you sleep. ⚔️ Bring it All Together Combine these into a suite and version it with Git. Share improvements, integrate with your XMR/RTM mining scripts, or build a remote command dashboard. 💬 Stay Sharp, Stay Secure Got ideas for advanced traps, honeypots, or alert systems? Share them. Let&#8217;s evolve the defense layer together — script by script, signal by signal.]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container"><style>
+  .mining-post-container {
+    font-family: 'Share Tech Mono', monospace;
+    background: linear-gradient(135deg, #0a111d, #141f30);
+    color: #e0f7ff;
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 30px rgba(0, 255, 200, 0.12);
+    animation: fadeIn 1.8s ease-in-out;
+  }
+
+  .mining-post-container h2 {
+    font-size: 2.2rem;
+    color: #00fff7;
+    text-shadow: 0 0 10px #00fff788;
+    margin-bottom: 25px;
+  }
+
+  .mining-post-container .excerpt {
+    background: linear-gradient(145deg, #0e1c2a, #162c3f);
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-style: italic;
+    color: #7fffd4;
+    text-shadow: 0 0 8px #00ffc2a8;
+    box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+    margin-bottom: 30px;
+  }
+
+  .mining-post-container h3 {
+    color: #00eaff;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    text-shadow: 0 0 8px #00d9ff99;
+  }
+
+  .mining-post-container p {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin: 10px 0 20px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 12px 18px;
+    border-radius: 10px;
+  }
+
+  pre {
+    background-color: #0b0f14;
+    color: #1affff;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+    margin-top: 15px;
+  }
+
+  code {
+    color: #aaffee;
+    font-family: 'Fira Code', monospace;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<h2>Defense by Design: Recon, Harden, and Automate with Tactical Shell Scripts</h2>
+<div class="excerpt">Step beyond the basics. This guide reveals how ethical hackers can create proactive, self-healing defenses using advanced recon and automation scripts — all from your terminal.</div>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4e1.png" alt="📡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Network Recon &#038; Auto-Mapping</h3>
+<p>Map out your LAN, identify rogue devices, and store logs automatically with this Bash + Nmap combo:</p>
+<pre><code>
+#!/bin/bash
+subnet="192.168.1.0/24"
+log="lan-scan-$(date +%F).log"
+echo "[*] Scanning LAN..." | tee $log
+nmap -sn $subnet | tee -a $log
+echo "[+] Devices logged to $log"
+</code></pre>
+<p>This gives you daily visibility into what&#8217;s live. Hook it to a cron job and sleep easy.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f6e1.png" alt="🛡" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Auto-Hardening Linux: Defense via Script</h3>
+<p>Automate firewall, SSH, and root login protection in one swoop:</p>
+<pre><code>
+#!/bin/bash
+echo "[*] Hardening firewall..."
+ufw default deny incoming
+ufw default allow outgoing
+ufw allow ssh
+ufw enable
+
+echo "[*] Disabling root SSH login..."
+sed -i 's/^PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
+systemctl restart sshd
+
+echo "[*] Installing fail2ban..."
+apt install -y fail2ban
+systemctl enable fail2ban
+systemctl start fail2ban
+</code></pre>
+<p>One command, and your server’s shielded. Pair this with monitoring tools for full defense cycles.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f3af.png" alt="🎯" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Auto-Ban Suspicious Traffic</h3>
+<p>Let logs tell you when to strike — here’s a live-monitor that scans for brute-force attempts:</p>
+<pre><code>
+#!/bin/bash
+tail -F /var/log/auth.log | while read line; do
+  echo "$line" | grep "Failed password" &>/dev/null
+  if [ $? -eq 0 ]; then
+    ip=$(echo "$line" | awk '{print $(NF-3)}')
+    echo "[!] Detected brute force from $ip"
+    ufw deny from $ip
+  fi
+done
+</code></pre>
+<p>Turn log lines into real-time triggers. Fully customizable for any log pattern or service.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f501.png" alt="🔁" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Schedule, Repeat, Defend</h3>
+<p>Use `cron` to automate these at boot or regular intervals. For example:</p>
+<pre><code>
+# Daily recon at 7 AM
+0 7 * * * /opt/scripts/lan-recon.sh
+
+# Auto-hardening on reboot
+@reboot /opt/scripts/harden.sh
+</code></pre>
+<p>Your system becomes a living fortress — updating, logging, and fighting threats while you sleep.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2694.png" alt="⚔" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Bring it All Together</h3>
+<p>Combine these into a suite and version it with Git. Share improvements, integrate with your XMR/RTM mining scripts, or build a remote command dashboard.</p>
+
+<h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ac.png" alt="💬" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Stay Sharp, Stay Secure</h3>
+<p>Got ideas for advanced traps, honeypots, or alert systems? Share them. Let&#8217;s evolve the defense layer together — script by script, signal by signal.</p>
+</div>
+
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=340</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>&#8220;Mastering Ethical Hacking with Shell Scripts &#038; Smart Tools&#8221;</title>
+		<link>http://192.168.1.108/?p=218</link>
+					<comments>http://192.168.1.108/?p=218#respond</comments>
+		
+		<dc:creator><![CDATA[anon]]></dc:creator>
+		<pubDate>Sat, 10 May 2025 11:15:30 +0000</pubDate>
+				<category><![CDATA[Security & Hacking]]></category>
+		<guid isPermaLink="false">http://192.168.1.108/?p=218</guid>
+
+					<description><![CDATA[Secure. Script. Automate: Mastering Ethical Hacking with Shell Scripts &#038; Smart Tools Discover the future of ethical hacking — where code meets control. This post explores how shell scripting, automation, and lightweight tools can transform your security workflow into a self-defending system. 🔐 Why Ethical Hackers Need Shell Scripting In modern cybersecurity, waiting for tools isn&#8217;t enough. Ethical hackers use shell scripts to build custom utilities for scanning, monitoring, and hardening systems. A simple script can: Identify open ports or vulnerabilities Monitor suspicious file changes Deploy automated firewall updates ⚙️ Real Automation: Your First Port Scanner Instead of relying solely on Nmap, here’s how to create a minimalist port scanner using bash: # Lightweight Port Scanner for port in {20..80}; do timeout 1 bash -c "]]></description>
+										<content:encoded><![CDATA[
+<div class="mining-post-container">
+  <style>
+    .mining-post-container {
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #080f19, #111d2f);
+      color: #e0f2ff;
+      border-radius: 20px;
+      padding: 35px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
+      animation: fadeIn 1.8s ease-in-out;
+    }
+
+    .mining-post-container h2 {
+      font-size: 2.2rem;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff788;
+      margin-bottom: 25px;
+    }
+
+    .mining-post-container .excerpt {
+      background: linear-gradient(145deg, #0c1a26, #15293c);
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-style: italic;
+      color: #7fffd4;
+      text-shadow: 0 0 8px #00ffc2a8;
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .mining-post-container h3 {
+      color: #00eaff;
+      font-size: 1.5rem;
+      margin-top: 30px;
+      text-shadow: 0 0 8px #00d9ff99;
+    }
+
+    .mining-post-container p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin: 10px 0 20px;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+
+    pre {
+      background-color: #0b0f14;
+      color: #1affff;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+      margin-top: 15px;
+    }
+
+    code {
+      color: #aaffee;
+      font-family: 'Fira Code', monospace;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <h2>Secure. Script. Automate: Mastering Ethical Hacking with Shell Scripts &#038; Smart Tools</h2>
+
+  <div class="excerpt">
+    Discover the future of ethical hacking — where code meets control. This post explores how shell scripting, automation, and lightweight tools can transform your security workflow into a self-defending system.
+  </div>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f510.png" alt="🔐" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Why Ethical Hackers Need Shell Scripting</h3>
+  <p>
+    In modern cybersecurity, waiting for tools isn&#8217;t enough. Ethical hackers use shell scripts to build custom utilities for scanning, monitoring, and hardening systems. A simple script can:
+    <ul>
+      <li>Identify open ports or vulnerabilities</li>
+      <li>Monitor suspicious file changes</li>
+      <li>Deploy automated firewall updates</li>
+    </ul>
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/2699.png" alt="⚙" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Real Automation: Your First Port Scanner</h3>
+  <p>
+    Instead of relying solely on Nmap, here’s how to create a minimalist port scanner using bash:
+  </p>
+
+  <pre><code>
+# Lightweight Port Scanner
+for port in {20..80}; do
+  timeout 1 bash -c "</dev/tcp/192.168.1.1/$port" 2>/dev/null &&
+  echo "Port $port is open"
+done
+  </code></pre>
+
+  <p>
+    This technique gives you raw access to TCP testing — ideal for locked-down systems or fast port diagnostics.
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f441.png" alt="👁" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Monitoring with <code>inotify</code></h3>
+  <p>
+    Watch a sensitive directory in real-time:
+  </p>
+
+  <pre><code>
+#!/bin/bash
+inotifywait -m /etc/ssh/ -e modify |
+while read path action file; do
+  echo "ALERT: $file modified!"
+done
+  </code></pre>
+
+  <p>
+    With a few lines of shell, you&#8217;ve created a basic IDS (intrusion detection system) without the bloat.
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f9e0.png" alt="🧠" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Smart Tools Every Scripter Should Know</h3>
+  <p>
+    Combine scripting with tools like:
+    <ul>
+      <li><strong>fail2ban</strong> – Ban brute force attackers with regex automation</li>
+      <li><strong>netstat</strong> / <strong>ss</strong> – Real-time network activity and port states</li>
+      <li><strong>cron</strong> – Automate regular scans and patching</li>
+    </ul>
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f680.png" alt="🚀" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Building an Automated Security Arsenal</h3>
+  <p>
+    Start chaining scripts into a toolkit. Set up a boot script that runs diagnostics, syncs backups, or starts miners based on uptime. You’re no longer relying on software — you’re building it.
+  </p>
+
+  <h3><img src="https://s.w.org/images/core/emoji/15.1.0/72x72/1f4ac.png" alt="💬" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Contribute to the Mission</h3>
+  <p>
+    Have your own ideas? Want to expand these scripts into full tools? Share in the comments — let’s collaborate and build real, working solutions for ethical hackers, miners, and DIY security enthusiasts.
+  </p>
+
+</div>
+
+]]></content:encoded>
+					
+					<wfw:commentRss>http://192.168.1.108/?feed=rss2&#038;p=218</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
